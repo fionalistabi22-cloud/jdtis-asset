@@ -9,16 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Protect page
-if (!isLoggedIn()) {
-    header('Location: ../login.php');
-    exit;
-}
-
-// Peranan: Juruteknik ATAU Agen IT (kedua-dua guna logic sama)
-if (!in_array($_SESSION['peranan'] ?? '', ['Juruteknik', 'Agen IT'], true)) {
-    die("Anda tidak mempunyai akses ke halaman ini.");
-}
+// Protect page (centralized guard: login + session expiry)
+requireRoleWhitelist(['Juruteknik', 'Agen IT']);
 
 
 $pengguna_id = isset($_SESSION['pengguna_id']) ? intval($_SESSION['pengguna_id']) : 0;

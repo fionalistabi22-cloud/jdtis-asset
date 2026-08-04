@@ -3,16 +3,8 @@ require_once '../../includes/config.php';
 require_once '../../includes/auth.php';
 require_once '../../includes/functions.php';
 
-// Protect page
-if (!isLoggedIn()) {
-    header("Location: ../login.php");
-    exit;
-}
-
-// Role: Juruteknik ATAU Agen IT
-if (!in_array($_SESSION['peranan'] ?? '', ['Juruteknik', 'Agen IT'], true)) {
-    die("Anda tidak mempunyai akses ke halaman ini.");
-}
+// Protect page (centralized guard: login + session expiry)
+requireRoleWhitelist(['Juruteknik', 'Agen IT']);
 
 
 $pengguna_id = $_SESSION['pengguna_id'];

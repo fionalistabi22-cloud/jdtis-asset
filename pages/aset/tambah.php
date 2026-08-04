@@ -3,16 +3,8 @@ require_once '../../includes/config.php';
 require_once '../../includes/auth.php';
 require_once '../../includes/functions.php';
 
-// Protect page
-if (!isLoggedIn()) {
-    header("Location: ../login.php");
-    exit;
-}
-
-// Only Juruteknik can access this
-if ($_SESSION['peranan'] !== 'Juruteknik') {
-    die("Anda tidak mempunyai akses ke halaman ini.");
-}
+// Protect page (centralized guard: login + session expiry)
+requireRoleWhitelist(['Juruteknik']);
 
 $pengguna_id = $_SESSION['pengguna_id'];
 $error = '';
@@ -87,99 +79,119 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } elseif ($agensi_id === 0) {
             $error = "Sila pilih agensi";
         } else {
-            // Semak no. pendaftaran unik
-            $check_stmt = mysqli_prepare($conn, "SELECT COUNT(*) AS count FROM aset WHERE no_pendaftaran = ?");
-            mysqli_stmt_bind_param($check_stmt, "s", $no_pendaftaran);
-            mysqli_stmt_execute($check_stmt);
-            $check_row = mysqli_fetch_assoc(mysqli_stmt_get_result($check_stmt));
-            mysqli_stmt_close($check_stmt);
+            $agensi_stmt = mysqli_prepare(
+                $conn,
+                "SELECT agensi_id FROM agensi WHERE agensi_id = ? AND wilayah_id = ? LIMIT 1"
+            );
 
-            if ($check_row['count'] > 0) {
-                $error = "No. Pendaftaran Aset ini sudah terdaftar. Sila gunakan no. yang berlainan.";
+            if (!$agensi_stmt) {
+                $error = "Ralat penyediaan query agensi: " . mysqli_error($conn);
             } else {
-                // ── INSERT — hanya kolum yang WUJUD dalam jadual aset ────────
-                // 18 placeholder (?) mesti sepadan dengan 18 pembolehubah bind_param.
-                // status_aset_id (=1) dan tarikh_input (=NOW()) adalah literal, bukan placeholder.
-                $insert_query = "INSERT INTO aset (
-                    no_pendaftaran, jenis_aset, jenis_perolehan,
-                    tahun_beli, jenama, model,
-                    processor, ram, cakera_keras,
-                    jenis_pencetak, no_siri_pencetak,
-                    pegawai_nama, pegawai_jawatan, pegawai_gred,
-                    agensi_id, wilayah_id, pengguna_id_daftar, catatan,
-                    status_aset_id, tarikh_input
-                ) VALUES (
-                    ?, ?, ?,
-                    ?, ?, ?,
-                    ?, ?, ?,
-                    ?, ?,
-                    ?, ?, ?,
-                    ?, ?, ?, ?,
-                    1, NOW()
-                )";
+                mysqli_stmt_bind_param($agensi_stmt, "ii", $agensi_id, $wilayah_id);
+                mysqli_stmt_execute($agensi_stmt);
+                $agensi_row = mysqli_fetch_assoc(mysqli_stmt_get_result($agensi_stmt));
+                mysqli_stmt_close($agensi_stmt);
 
-                $insert_stmt = mysqli_prepare($conn, $insert_query);
+                if (!$agensi_row) {
+                    $error = "Agensi tidak sah untuk wilayah anda.";
+                }
+            }
 
-                if (!$insert_stmt) {
-                    $error = "Ralat penyediaan query: " . mysqli_error($conn);
+            if (empty($error)) {
+                // Semak no. pendaftaran unik
+                $check_stmt = mysqli_prepare($conn, "SELECT COUNT(*) AS count FROM aset WHERE no_pendaftaran = ?");
+                mysqli_stmt_bind_param($check_stmt, "s", $no_pendaftaran);
+                mysqli_stmt_execute($check_stmt);
+                $check_row = mysqli_fetch_assoc(mysqli_stmt_get_result($check_stmt));
+                mysqli_stmt_close($check_stmt);
+
+                if ($check_row['count'] > 0) {
+                    $error = "No. Pendaftaran Aset ini sudah terdaftar. Sila gunakan no. yang berlainan.";
                 } else {
-                    // 19 parameter:
-                    // s no_pendaftaran, s jenis_aset, s jenis_perolehan,
-                    // i tahun_beli, s jenama, s model,
-                    // s processor, s ram, s cakera_keras, s sistem_operasi,
-                    // s no_siri_pencetak, s jenis_pencetak,
-                    // s pegawai_nama, s pegawai_jawatan, s pegawai_gred,
-                    // i agensi_id, i pengguna_id, s catatan,
-                    // i wilayah_id
-                    mysqli_stmt_bind_param(
-                        $insert_stmt,
-                        "sssissssssssssiiis",
-                        $no_pendaftaran, $jenis_aset, $jenis_perolehan,
-                        $tahun_beli, $jenama, $model,
-                        $processor, $ram, $cakera_keras,
-                        $jenis_pencetak, $no_siri_pencetak,
-                        $pegawai_nama, $pegawai_jawatan, $pegawai_gred,
-                        $agensi_id, $wilayah_id, $pengguna_id, $catatan
-                    );
+                    // ── INSERT — hanya kolum yang WUJUD dalam jadual aset ────────
+                    // 18 placeholder (?) mesti sepadan dengan 18 pembolehubah bind_param.
+                    // status_aset_id (=1) dan tarikh_input (=NOW()) adalah literal, bukan placeholder.
+                    $insert_query = "INSERT INTO aset (
+                        no_pendaftaran, jenis_aset, jenis_perolehan,
+                        tahun_beli, jenama, model,
+                        processor, ram, cakera_keras,
+                        jenis_pencetak, no_siri_pencetak,
+                        pegawai_nama, pegawai_jawatan, pegawai_gred,
+                        agensi_id, wilayah_id, pengguna_id_daftar, catatan,
+                        status_aset_id, tarikh_input
+                    ) VALUES (
+                        ?, ?, ?,
+                        ?, ?, ?,
+                        ?, ?, ?,
+                        ?, ?,
+                        ?, ?, ?,
+                        ?, ?, ?, ?,
+                        1, NOW()
+                    )";
 
-                    if (mysqli_stmt_execute($insert_stmt)) {
-                        $aset_id = mysqli_insert_id($conn);
-                        logActivity($conn, 'Daftar Aset', "Aset baru didaftarkan: $no_pendaftaran ($jenis_aset) oleh Juruteknik");
+                    $insert_stmt = mysqli_prepare($conn, $insert_query);
 
-                        // Notifikasi dihantar kepada PPTM (peranan_id 4) & PTM (peranan_id 5)
-                        // dalam wilayah yang sama, kerana mereka yang mengesahkan aset.
-                        $mesej_notif = "Permohonan pengesahan aset: $no_pendaftaran (Juruteknik)";
-                        $url_notif   = "pages/aset/semak.php?id=$aset_id";
-
-                        $penerima_stmt = mysqli_prepare($conn,
-                            "SELECT p.pengguna_id
-                             FROM pengguna p
-                             JOIN peranan r ON p.peranan_id = r.peranan_id
-                             WHERE r.nama_peranan IN ('PPTM', 'PTM')
-                               AND p.wilayah_id = ?
-                               AND p.status_pengguna_id = 1");
-                        mysqli_stmt_bind_param($penerima_stmt, "i", $wilayah_id);
-                        mysqli_stmt_execute($penerima_stmt);
-                        $penerima_list = mysqli_fetch_all(mysqli_stmt_get_result($penerima_stmt), MYSQLI_ASSOC);
-                        mysqli_stmt_close($penerima_stmt);
-
-                        $notif_stmt = mysqli_prepare($conn,
-                            "INSERT INTO notifikasi (penerima_id, aset_id, jenis, mesej, url, dibaca, tarikh)
-                             VALUES (?, ?, 'aset_baru', ?, ?, 0, NOW())");
-                        foreach ($penerima_list as $penerima) {
-                            $penerima_id = $penerima['pengguna_id'];
-                            mysqli_stmt_bind_param($notif_stmt, "iiss", $penerima_id, $aset_id, $mesej_notif, $url_notif);
-                            mysqli_stmt_execute($notif_stmt);
-                        }
-                        mysqli_stmt_close($notif_stmt);
-
-                        $success = "Aset berjaya didaftarkan! No. pendaftaran: <strong>$no_pendaftaran</strong><br>Status: Menunggu Pengesahan";
-                        header("Refresh: 2; url=index.php");
+                    if (!$insert_stmt) {
+                        $error = "Ralat penyediaan query: " . mysqli_error($conn);
                     } else {
-                        $error = "Ralat semasa menyimpan: " . mysqli_error($conn);
-                    }
+                        // 19 parameter:
+                        // s no_pendaftaran, s jenis_aset, s jenis_perolehan,
+                        // i tahun_beli, s jenama, s model,
+                        // s processor, s ram, s cakera_keras, s sistem_operasi,
+                        // s no_siri_pencetak, s jenis_pencetak,
+                        // s pegawai_nama, s pegawai_jawatan, s pegawai_gred,
+                        // i agensi_id, i pengguna_id, s catatan,
+                        // i wilayah_id
+                        mysqli_stmt_bind_param(
+                            $insert_stmt,
+                            "sssissssssssssiiis",
+                            $no_pendaftaran, $jenis_aset, $jenis_perolehan,
+                            $tahun_beli, $jenama, $model,
+                            $processor, $ram, $cakera_keras,
+                            $jenis_pencetak, $no_siri_pencetak,
+                            $pegawai_nama, $pegawai_jawatan, $pegawai_gred,
+                            $agensi_id, $wilayah_id, $pengguna_id, $catatan
+                        );
 
-                    mysqli_stmt_close($insert_stmt);
+                        if (mysqli_stmt_execute($insert_stmt)) {
+                            $aset_id = mysqli_insert_id($conn);
+                            logActivity($conn, 'Daftar Aset', "Aset baru didaftarkan: $no_pendaftaran ($jenis_aset) oleh Juruteknik");
+
+                            // Notifikasi dihantar kepada PPTM (peranan_id 4) & PTM (peranan_id 5)
+                            // dalam wilayah yang sama, kerana mereka yang mengesahkan aset.
+                            $mesej_notif = "Permohonan pengesahan aset: $no_pendaftaran (Juruteknik)";
+                            $url_notif   = "pages/aset/semak.php?id=$aset_id";
+
+                            $penerima_stmt = mysqli_prepare($conn,
+                                "SELECT p.pengguna_id
+                                 FROM pengguna p
+                                 JOIN peranan r ON p.peranan_id = r.peranan_id
+                                 WHERE r.nama_peranan IN ('PPTM', 'PTM')
+                                   AND p.wilayah_id = ?
+                                   AND p.status_pengguna_id = 1");
+                            mysqli_stmt_bind_param($penerima_stmt, "i", $wilayah_id);
+                            mysqli_stmt_execute($penerima_stmt);
+                            $penerima_list = mysqli_fetch_all(mysqli_stmt_get_result($penerima_stmt), MYSQLI_ASSOC);
+                            mysqli_stmt_close($penerima_stmt);
+
+                            $notif_stmt = mysqli_prepare($conn,
+                                "INSERT INTO notifikasi (penerima_id, aset_id, jenis, mesej, url, dibaca, tarikh)
+                                 VALUES (?, ?, 'aset_baru', ?, ?, 0, NOW())");
+                            foreach ($penerima_list as $penerima) {
+                                $penerima_id = $penerima['pengguna_id'];
+                                mysqli_stmt_bind_param($notif_stmt, "iiss", $penerima_id, $aset_id, $mesej_notif, $url_notif);
+                                mysqli_stmt_execute($notif_stmt);
+                            }
+                            mysqli_stmt_close($notif_stmt);
+
+                            $success = "Aset berjaya didaftarkan! No. pendaftaran: <strong>$no_pendaftaran</strong><br>Status: Menunggu Pengesahan";
+                            header("Refresh: 2; url=index.php");
+                        } else {
+                            $error = "Ralat semasa menyimpan: " . mysqli_error($conn);
+                        }
+
+                        mysqli_stmt_close($insert_stmt);
+                    }
                 }
             }
         }

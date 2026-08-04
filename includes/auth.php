@@ -77,17 +77,39 @@ function hasMinimumLevel($min_level) {
 }
 
 /**
+ * Hantar pengguna ke halaman log masuk memakai laluan kanonik.
+ * Guna APP_URL (BASE_URL) apabila tersedia, jika tidak fallback ke laluan mutlak.
+ * Kembali: void (redirect & keluar)
+ */
+function loginRedirect(): void {
+    $base = defined('APP_URL') ? APP_URL : '/jdtis_asset';
+    header('Location: ' . $base . '/pages/login.php');
+    exit;
+}
+
+/**
  * Lindungi halaman - redirect ke login jika belum log masuk
  * Parameter: $required_role = peranan yang diperlukan (opsional)
  * Kembali: void (redirect atau keluar)
+ *
+ * Tapak sepunya untuk semua semakan autentikasi DAN tempoh sesi.
+ * Sesi yang telah tamat (expiry_time) akan dimusnahkan dan dihantar
+ * semula ke halaman log masuk di sini, supaya semua halaman yang
+ * memakai requireLogin()/requireRoleWhitelist()/sekatAksesAset()
+ * mendapat penguatkuasaan tamat sesi secara konsisten.
  */
 function requireLogin($required_role = null) {
     if (!isLoggedIn()) {
         $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
-        header("Location: " . (strpos($_SERVER['REQUEST_URI'], '/pages/') ? '' : '../') . "pages/login.php");
-        exit;
+        loginRedirect();
     }
-    
+
+    // Sesi tamat tempoh — musnahkan sesi dan hantar ke log masuk.
+    if (isSessionExpired()) {
+        unset($_SESSION['redirect_after_login']);
+        loginRedirect();
+    }
+
     // Jika peranan diperlukan, semak
     if ($required_role !== null && !hasRole($required_role)) {
         header("HTTP/1.0 403 Forbidden");

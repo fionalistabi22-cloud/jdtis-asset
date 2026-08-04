@@ -8,17 +8,8 @@ require_once '../../includes/config.php';
 require_once '../../includes/auth.php';
 require_once '../../includes/functions.php';
 
-// Pastikan pengguna sudah log masuk.
-if (!isLoggedIn()) {
-    header('Location: ../login.php');
-    exit;
-}
-
-// Halaman ini khusus untuk Juruteknik.
-if (($_SESSION['peranan'] ?? '') !== 'Juruteknik') {
-    http_response_code(403);
-    die('Anda tidak mempunyai akses ke halaman ini.');
-}
+// Pastikan pengguna sudah log masuk dan sesi belum tamat (centralized guard).
+requireRoleWhitelist(['Juruteknik']);
 
 $pengguna_id = (int) ($_SESSION['pengguna_id'] ?? 0);
 $aset_id = isset($_GET['id']) ? (int) $_GET['id'] : 0;

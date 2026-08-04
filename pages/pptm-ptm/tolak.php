@@ -3,16 +3,8 @@ require_once '../../includes/config.php';
 require_once '../../includes/auth.php';
 require_once '../../includes/functions.php';
 
-// Protect page
-if (!isLoggedIn()) {
-    header("Location: ../login.php");
-    exit;
-}
-
-// Only PPTM/PTM can access this
-if (!in_array($_SESSION['peranan'], ['PPTM', 'PTM'])) {
-    die("Anda tidak mempunyai akses ke halaman ini.");
-}
+// Protect page (centralized guard: login + session expiry)
+requireRoleWhitelist(['PPTM', 'PTM']);
 
 $pengguna_id = $_SESSION['pengguna_id'];
 $wilayah_id = (int)($_SESSION['wilayah_id'] ?? 0);

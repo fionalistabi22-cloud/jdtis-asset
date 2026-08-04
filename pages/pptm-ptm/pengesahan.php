@@ -3,14 +3,7 @@ require_once '../../includes/config.php';
 require_once '../../includes/auth.php';
 require_once '../../includes/functions.php';
 
-if (!isLoggedIn()) {
-    header("Location: ../login.php");
-    exit;
-}
-
-if (!in_array($_SESSION['peranan'], ['PPTM', 'PTM'])) {
-    die("Anda tidak mempunyai akses ke halaman ini.");
-}
+requireRoleWhitelist(['PPTM', 'PTM']);
 
 // ================================================================
 // PEMBETULAN: Guna wilayah_id dari session untuk skop data
