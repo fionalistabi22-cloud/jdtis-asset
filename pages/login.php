@@ -51,6 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $user = mysqli_fetch_assoc($result);
 
                     if (verifyPassword($password, $user['kata_laluan_hash'])) {
+                        session_regenerate_id(true);
+
                         setUserSession($conn, $user);
                         logActivity($conn, 'Log Masuk', 'Pengguna log masuk ke sistem');
 
