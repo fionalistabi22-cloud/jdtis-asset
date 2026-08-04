@@ -1,0 +1,358 @@
+/*
+ * JTDIS Asset Management
+ * Shared stylesheet untuk modul Admin Wilayah
+ *
+ * Lokasi cadangan:
+ * C:\xampp\htdocs\jdtis_asset\pages\admin-wilayah\admin-wilayah.css
+ *
+ * Digunakan oleh:
+ * - dashboard.php
+ * - pengguna/index.php
+ * - pengguna/tambah.php
+ * - pengguna/edit.php
+ * - pengguna/reset_password.php
+ * - pengguna/hapus.php
+ */
+
+:root {
+    --aw-primary: #667eea;
+    --aw-secondary: #764ba2;
+    --aw-primary-dark: #4f46e5;
+    --aw-page-bg: #f5f7fb;
+    --aw-surface: #ffffff;
+    --aw-text: #172033;
+    --aw-muted: #6b7280;
+    --aw-border: #e5e7eb;
+    --aw-success: #28a745;
+    --aw-warning: #ffc107;
+    --aw-danger: #dc3545;
+    --aw-info: #0dcaf0;
+    --aw-sidebar-gradient: linear-gradient(
+        160deg,
+        var(--aw-primary) 0%,
+        var(--aw-secondary) 100%
+    );
+    --aw-shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.07);
+    --aw-shadow-md: 0 12px 30px rgba(15, 23, 42, 0.09);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body.admin-wilayah {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--aw-page-bg);
+    color: var(--aw-text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.admin-wilayah > .container-fluid {
+    padding: 0;
+}
+
+body.admin-wilayah > .container-fluid > .row {
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.admin-wilayah .sidebar {
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    color: #ffffff;
+    background: var(--aw-sidebar-gradient);
+    box-shadow: 8px 0 24px rgba(76, 29, 149, 0.12);
+}
+
+.admin-wilayah .sidebar h4 {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.admin-wilayah .sidebar .text-warning {
+    color: #fde68a !important;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.admin-wilayah .sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.35rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.84);
+    font-weight: 600;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.admin-wilayah .sidebar .nav-link:hover,
+.admin-wilayah .sidebar .nav-link.active {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.18);
+    transform: translateX(2px);
+}
+
+.admin-wilayah .sidebar .nav-link i {
+    width: 1.1rem;
+    text-align: center;
+}
+
+.admin-wilayah .sidebar-divider {
+    margin: 1.15rem 0;
+    border-color: rgba(255, 255, 255, 0.22);
+    opacity: 1;
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.admin-wilayah .main-content {
+    min-width: 0;
+}
+
+.admin-wilayah h2 {
+    margin-bottom: 0.35rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.admin-wilayah .text-muted {
+    color: var(--aw-muted) !important;
+}
+
+.admin-wilayah .card {
+    border: 0;
+    border-radius: 16px;
+    background: var(--aw-surface);
+    box-shadow: var(--aw-shadow-sm);
+}
+
+.admin-wilayah .card-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--aw-border);
+    background: #f8fafc;
+}
+
+.admin-wilayah .section-card-header {
+    border-bottom: 1px solid var(--aw-border);
+    background: #f8fafc;
+}
+
+.admin-wilayah .card-body {
+    min-width: 0;
+}
+
+.admin-wilayah .region-card,
+.admin-wilayah .stat-card {
+    color: #ffffff;
+    background: var(--aw-sidebar-gradient);
+}
+
+.admin-wilayah .region-card {
+    box-shadow: 0 16px 34px rgba(102, 126, 234, 0.22);
+}
+
+.admin-wilayah .stat-card {
+    min-height: 122px;
+}
+
+.admin-wilayah .stat-card .card-title {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.admin-wilayah .stat-icon {
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+.admin-wilayah .stat-accent-success {
+    border-left: 4px solid var(--aw-success);
+}
+
+.admin-wilayah .stat-accent-warning {
+    border-left: 4px solid var(--aw-warning);
+}
+
+.admin-wilayah .stat-accent-danger {
+    border-left: 4px solid var(--aw-danger);
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.admin-wilayah .table-responsive {
+    border-radius: 16px;
+}
+
+.admin-wilayah .table {
+    vertical-align: middle;
+}
+
+.admin-wilayah .table thead th {
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
+    border-bottom-width: 1px;
+    color: #475569;
+    background: #f8fafc;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.admin-wilayah .table tbody td {
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    border-color: #eef2f7;
+}
+
+.admin-wilayah .table-hover > tbody > tr:hover > * {
+    background: #f8faff;
+}
+
+/* =========================================================
+   FORM, BUTTON DAN ALERT
+   ========================================================= */
+
+.admin-wilayah .form-label {
+    margin-bottom: 0.45rem;
+    color: #334155;
+    font-weight: 700;
+}
+
+.admin-wilayah .form-control,
+.admin-wilayah .form-select {
+    min-height: 44px;
+    border-color: #dbe2ea;
+    border-radius: 10px;
+}
+
+.admin-wilayah .form-control:focus,
+.admin-wilayah .form-select:focus {
+    border-color: var(--aw-primary);
+    box-shadow: 0 0 0 0.22rem rgba(102, 126, 234, 0.15);
+}
+
+.admin-wilayah .btn {
+    border-radius: 10px;
+    font-weight: 650;
+}
+
+.admin-wilayah .btn-primary {
+    border-color: transparent;
+    background: linear-gradient(
+        135deg,
+        var(--aw-primary) 0%,
+        var(--aw-primary-dark) 100%
+    );
+}
+
+.admin-wilayah .btn-primary:hover {
+    border-color: transparent;
+    background: linear-gradient(135deg, #5b70d9 0%, #4338ca 100%);
+}
+
+.admin-wilayah .alert {
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.admin-wilayah .badge {
+    padding: 0.45rem 0.65rem;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.admin-wilayah .badge-aktif {
+    color: #ffffff;
+    background: var(--aw-success);
+}
+
+.admin-wilayah .badge-suspend {
+    color: #ffffff;
+    background: var(--aw-danger);
+}
+
+.admin-wilayah .badge-tidak-aktif {
+    color: #4b3b00;
+    background: var(--aw-warning);
+}
+
+/* =========================================================
+   PAGE-SPECIFIC
+   ========================================================= */
+
+.admin-wilayah .delete-card {
+    max-width: 600px;
+}
+
+.admin-wilayah .reset-card {
+    max-width: 500px;
+}
+
+.admin-wilayah .card.border-danger {
+    border: 1px solid var(--aw-danger);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+    .admin-wilayah .sidebar {
+        position: static;
+        min-height: auto;
+    }
+
+    .admin-wilayah .stat-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    body.admin-wilayah > .container-fluid > .row {
+        min-height: auto;
+    }
+
+    .admin-wilayah .sidebar {
+        padding: 1.25rem !important;
+    }
+
+    .admin-wilayah .main-content {
+        padding: 1.25rem !important;
+    }
+
+    .admin-wilayah .sidebar .nav-link:hover,
+    .admin-wilayah .sidebar .nav-link.active {
+        transform: none;
+    }
+
+    .admin-wilayah .table {
+        min-width: 850px;
+    }
+}

@@ -1,0 +1,789 @@
+/*
+ * JTDIS Asset Management
+ * Stylesheet bersama untuk semua halaman dalam:
+ * C:\xampp\htdocs\jdtis_asset\pages\aset
+ *
+ * Digunakan oleh:
+ * dashboard.php, index.php, tambah.php, edit.php, lihat.php dan hapus.php
+ */
+
+:root {
+            --sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --surface: #ffffff;
+            --text-main: #172033;
+            --text-muted: #6b7280;
+            --border-soft: #e8edf5;
+            --shadow-soft: 0 18px 40px rgba(99, 102, 241, 0.08);
+            --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
+            --primary-grad: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            --success-grad: linear-gradient(135deg, #10b981 0%, #22c55e 100%);
+            --danger-grad: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --warning-grad: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sidebar {
+            min-height: 100vh;
+            color: #fff;
+            background: linear-gradient(180deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+            position: sticky;
+            top: 0;
+        }
+        .brand-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1.25rem;
+        }
+        .brand-mark {
+            width: 46px;
+            height: 46px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 14px;
+            background: rgba(255,255,255,.16);
+            border: 1px solid rgba(255,255,255,.22);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+        }
+        .brand-mark i { font-size: 1.2rem; }
+        .brand-title { font-size: 1.8rem; font-weight: 800; line-height: 1; margin: 0; }
+        .brand-subtitle { color: rgba(255,255,255,.76); margin: 0; font-size: .95rem; }
+        .role-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .55rem .8rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,.14);
+            border: 1px solid rgba(255,255,255,.18);
+            color: #fff;
+            font-size: .88rem;
+            margin-bottom: 1.4rem;
+        }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: .9rem 1rem;
+            color: rgba(255,255,255,.84);
+            border-radius: 14px;
+            transition: .2s ease;
+            margin-bottom: .35rem;
+            font-weight: 500;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+            background: rgba(0,0,0,.16);
+            transform: translateX(2px);
+        }
+        .nav-separator { border-color: rgba(255,255,255,.18) !important; margin: 1.15rem 0; }
+        .main-content {
+            padding: 1.25rem 1.35rem 1.75rem;
+        }
+        .page-hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+        .page-title {
+            margin: 0;
+            font-size: clamp(1.75rem, 3vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: -.02em;
+        }
+        .page-subtitle {
+            margin: .35rem 0 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        .page-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .7rem 1rem;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-sm);
+            color: var(--text-main);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .card {
+            border: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            background: var(--surface);
+        }
+        .card-header {
+            background: transparent !important;
+            border-bottom: 1px solid var(--border-soft);
+            padding: 1.05rem 1.25rem;
+        }
+        .card-body { padding: 1.25rem; }
+        .btn {
+            border-radius: 13px;
+            font-weight: 600;
+            padding: .75rem 1rem;
+        }
+        .btn-lg { padding: .95rem 1.2rem; }
+        .btn-primary {
+            border: 0;
+            background: var(--primary-grad);
+            box-shadow: 0 10px 22px rgba(59,130,246,.2);
+        }
+        .btn-success { box-shadow: 0 10px 22px rgba(16,185,129,.18); }
+        .btn-danger { box-shadow: 0 10px 22px rgba(239,68,68,.16); }
+        .btn-outline-primary, .btn-outline-secondary, .btn-outline-danger, .btn-outline-warning, .btn-outline-success {
+            border-width: 1.5px;
+        }
+        .alert {
+            border: 0;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+        .table-responsive { border-radius: 0 0 20px 20px; }
+        .table { margin-bottom: 0; }
+        .table > :not(caption) > * > * {
+            padding: .9rem .95rem;
+            vertical-align: middle;
+            border-color: #eef2f7;
+        }
+        .table > thead {
+            background: #f8fafc;
+        }
+        .table > thead th {
+            color: #5f6b7d;
+            font-size: .82rem;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            font-weight: 700;
+            border-bottom-width: 1px;
+        }
+        .table > tbody tr:hover { background: #fbfcfe; }
+        .form-label { font-weight: 700; color: #334155; }
+        .form-control, .form-select {
+            min-height: 48px;
+            border-radius: 14px;
+            border-color: #d9e1ea;
+            padding: .7rem .95rem;
+            box-shadow: none;
+        }
+        textarea.form-control { min-height: 120px; }
+        .form-control:focus, .form-select:focus {
+            border-color: #6477ff;
+            box-shadow: 0 0 0 .2rem rgba(100,119,255,.12);
+        }
+        .stat-card {
+            position: relative;
+            border-radius: 20px;
+            padding: 1.35rem 1.4rem;
+            color: #fff;
+            min-height: 145px;
+            box-shadow: var(--shadow-soft);
+        }
+        .stat-card .stat-label { font-size: .95rem; opacity: .92; margin-bottom: .4rem; }
+        .stat-card .stat-value { font-size: 2.15rem; font-weight: 800; line-height: 1; }
+        .stat-card .stat-icon {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: rgba(255,255,255,.18);
+            display: inline-grid;
+            place-items: center;
+            font-size: 1.45rem;
+        }
+        .stat-blue { background: var(--primary-grad); }
+        .stat-orange { background: var(--warning-grad); }
+        .stat-green { background: var(--success-grad); }
+        .stat-red { background: var(--danger-grad); }
+        .hero-note {
+            border-left: 4px solid #6366f1;
+            background: #eef2ff;
+            color: #39417c;
+        }
+        .detail-grid .detail-item {
+            background: #f8fafc;
+            border: 1px solid #e7edf5;
+            border-radius: 16px;
+            padding: .95rem 1rem;
+            height: 100%;
+        }
+        .detail-label {
+            display: block;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            font-weight: 700;
+            color: #64748b;
+            margin-bottom: .35rem;
+        }
+        .detail-value { font-weight: 600; color: #111827; }
+        .section-soft {
+            border: 1px solid #ebf0f6;
+            border-radius: 18px;
+            padding: 1rem 1.05rem;
+            background: #fbfdff;
+        }
+        .empty-state { color: #7b8798; text-align: center; padding: 3rem 1rem; }
+        .empty-state i { font-size: 2.5rem; display:block; margin-bottom:.8rem; color:#9aa8bc; }
+        .info-list li { margin-bottom: .45rem; }
+        .badge { border-radius: 999px; padding: .55rem .8rem; font-weight: 700; }
+        .badge-status { padding: .5rem .8rem; border-radius: 999px; font-size: .85rem; font-weight: 700; }
+        .action-btn-group .btn { margin-bottom: .35rem; }
+        .table-actions .btn { margin-bottom: .3rem; }
+        @media (max-width: 991.98px) {
+            .sidebar { position: static; min-height: auto; }
+            .main-content { padding: 1rem; }
+            .page-hero { flex-direction: column; }
+        }
+
+/* =========================================================
+   EDIT PAGE
+   ========================================================= */
+html,
+body.page-edit {
+min-height: 100%;
+}
+
+body.page-edit {
+overflow-x: hidden;
+}
+
+body.page-edit .container-fluid {
+padding: 0 !important;
+}
+
+body.page-edit .app-shell {
+min-height: 100vh;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+}
+
+body.page-edit .sidebar {
+flex: 0 0 280px;
+            width: 280px;
+            max-width: 280px;
+            min-height: 100vh !important;
+            align-self: stretch;
+            position: sticky;
+            top: 0;
+            padding: 1.5rem;
+}
+
+body.page-edit .sidebar-nav {
+display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 215px);
+}
+
+body.page-edit .logout-link {
+margin-top: auto;
+}
+
+body.page-edit .main-content {
+flex: 1 1 auto;
+            width: calc(100% - 280px);
+            min-width: 0;
+            min-height: 100vh;
+            padding: 1.5rem;
+}
+
+body.page-edit .content-container {
+width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+}
+
+body.page-edit .brand-logo {
+display: block;
+            width: min(205px, 100%);
+            height: auto;
+            margin: 0 auto 1.15rem;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .18));
+}
+
+body.page-edit .form-section {
+margin-bottom: 1.25rem;
+            padding: 1.15rem;
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            background: #fbfdff;
+}
+
+body.page-edit .form-section-title {
+display: flex;
+            align-items: center;
+            gap: .55rem;
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+}
+
+body.page-edit .form-section-title i {
+color: #4f46e5;
+}
+
+@media (max-width: 991.98px) {
+body.page-edit .app-shell {
+display: block;
+}
+
+body.page-edit .sidebar {
+position: static;
+                width: 100%;
+                max-width: none;
+                min-height: auto !important;
+}
+
+body.page-edit .sidebar-nav {
+min-height: auto;
+}
+
+body.page-edit .logout-link {
+margin-top: 0;
+}
+
+body.page-edit .main-content {
+width: 100%;
+                min-height: auto;
+                padding: 1rem;
+}
+
+body.page-edit .brand-logo {
+width: min(250px, 100%);
+}
+}
+
+@media (max-width: 575.98px) {
+body.page-edit .sidebar {
+padding: 1.1rem;
+}
+
+body.page-edit .main-content {
+padding: .8rem;
+}
+
+body.page-edit .card-body {
+padding: 1.1rem !important;
+}
+
+body.page-edit .btn-lg {
+width: 100%;
+                margin-bottom: .55rem;
+}
+}
+
+/* =========================================================
+   LIHAT / ASSET DETAIL PAGE
+   ========================================================= */
+body.page-lihat, body.page-lihat * {
+box-sizing: border-box;
+}
+
+html,
+body.page-lihat {
+min-height: 100%;
+}
+
+body.page-lihat {
+margin: 0;
+            overflow-x: hidden;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.page-lihat a {
+text-decoration: none;
+}
+
+/*
+         * Struktur utama.
+         * flex-wrap: nowrap menghalang kandungan utama turun
+         * ke bawah sidebar pada paparan desktop.
+         */
+
+body.page-lihat .app-shell {
+min-height: 100vh;
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0;
+}
+
+body.page-lihat .sidebar {
+flex: 0 0 280px;
+            width: 280px;
+            max-width: 280px;
+            min-height: 100vh;
+            position: sticky;
+            top: 0;
+            align-self: flex-start;
+            padding: 1.5rem;
+            color: #ffffff;
+            background: linear-gradient(
+                180deg,
+                var(--sidebar-start) 0%,
+                var(--sidebar-end) 100%
+            );
+}
+
+body.page-lihat .brand-wrap {
+display: block;
+            margin-bottom: 1.25rem;
+}
+
+body.page-lihat .brand-logo {
+display: block;
+            width: min(205px, 100%);
+            height: auto;
+            margin: 0 auto;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .18));
+}
+
+body.page-lihat .brand-fallback {
+display: none;
+            align-items: center;
+            gap: .8rem;
+}
+
+body.page-lihat .brand-mark {
+width: 46px;
+            height: 46px;
+            display: inline-grid;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, .22);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .16);
+}
+
+body.page-lihat .brand-title {
+margin: 0;
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1;
+}
+
+body.page-lihat .brand-subtitle {
+margin: .25rem 0 0;
+            color: rgba(255, 255, 255, .76);
+            font-size: .88rem;
+}
+
+body.page-lihat .role-pill {
+width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .45rem;
+            margin-bottom: 1.4rem;
+            padding: .6rem .85rem;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 999px;
+            color: #ffffff;
+            background: rgba(255, 255, 255, .14);
+            font-size: .88rem;
+            font-weight: 700;
+}
+
+body.page-lihat .sidebar-nav {
+display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 245px);
+}
+
+body.page-lihat .nav-link {
+display: flex;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: .35rem;
+            padding: .9rem 1rem;
+            border-radius: 14px;
+            color: rgba(255, 255, 255, .86);
+            font-weight: 600;
+            transition:
+                transform .2s ease,
+                background .2s ease,
+                color .2s ease;
+}
+
+body.page-lihat .nav-link:hover,
+body.page-lihat .nav-link.active {
+color: #ffffff;
+            background: rgba(0, 0, 0, .16);
+            transform: translateX(2px);
+}
+
+body.page-lihat .nav-separator {
+margin: 1.15rem 0;
+            border-color: rgba(255, 255, 255, .18) !important;
+}
+
+body.page-lihat .logout-link {
+margin-top: auto;
+}
+
+body.page-lihat .main-content {
+flex: 1 1 auto;
+            width: calc(100% - 280px);
+            min-width: 0;
+            min-height: 100vh;
+            padding: 1.5rem;
+}
+
+body.page-lihat .content-container {
+width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+}
+
+body.page-lihat .page-hero {
+display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+}
+
+body.page-lihat .page-title {
+margin: 0;
+            font-size: clamp(1.8rem, 3vw, 2.45rem);
+            font-weight: 800;
+            letter-spacing: -.025em;
+}
+
+body.page-lihat .page-subtitle {
+margin: .35rem 0 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+}
+
+body.page-lihat .btn {
+border-radius: 13px;
+            padding: .72rem 1rem;
+            font-weight: 700;
+}
+
+body.page-lihat .btn-primary {
+border: 0;
+            background: var(--primary-grad);
+            box-shadow: 0 10px 22px rgba(59, 130, 246, .2);
+}
+
+body.page-lihat .btn-danger {
+border: 0;
+            background: var(--danger-grad);
+            box-shadow: 0 10px 22px rgba(239, 68, 68, .16);
+}
+
+body.page-lihat .card {
+overflow: hidden;
+            border: 0;
+            border-radius: 22px;
+            background: var(--surface);
+            box-shadow: var(--shadow-soft);
+}
+
+body.page-lihat .asset-card-header {
+display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.4rem 1.5rem;
+            border-bottom: 1px solid var(--border-soft);
+}
+
+body.page-lihat .asset-number {
+margin: 0 0 .55rem;
+            font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+            font-weight: 800;
+            overflow-wrap: anywhere;
+}
+
+body.page-lihat .status-badge {
+display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .5rem .8rem;
+            border-radius: 999px;
+            color: #ffffff;
+            font-size: .82rem;
+            font-weight: 800;
+}
+
+body.page-lihat .action-buttons {
+display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: .55rem;
+}
+
+body.page-lihat .card-body {
+padding: 1.5rem;
+}
+
+body.page-lihat .section-title {
+display: flex;
+            align-items: center;
+            gap: .55rem;
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+}
+
+body.page-lihat .section-title i {
+color: #4f46e5;
+}
+
+body.page-lihat .detail-section {
+margin-bottom: 1.25rem;
+            padding: 1.2rem;
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            background: #fbfdff;
+}
+
+body.page-lihat .detail-grid {
+display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .9rem;
+}
+
+body.page-lihat .detail-item {
+min-width: 0;
+            padding: .95rem 1rem;
+            border: 1px solid #e7edf5;
+            border-radius: 15px;
+            background: #ffffff;
+}
+
+body.page-lihat .detail-label {
+display: block;
+            margin-bottom: .35rem;
+            color: #64748b;
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .045em;
+            text-transform: uppercase;
+}
+
+body.page-lihat .detail-value {
+display: block;
+            color: #111827;
+            font-weight: 650;
+            overflow-wrap: anywhere;
+}
+
+body.page-lihat .notes-box {
+margin: 0;
+            color: #334155;
+            line-height: 1.7;
+            white-space: normal;
+}
+
+body.page-lihat .bottom-actions {
+display: flex;
+            flex-wrap: wrap;
+            gap: .65rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-soft);
+}
+
+@media (max-width: 991.98px) {
+body.page-lihat .app-shell {
+display: block;
+}
+
+body.page-lihat .sidebar {
+position: static;
+                width: 100%;
+                max-width: none;
+                min-height: auto;
+}
+
+body.page-lihat .sidebar-nav {
+min-height: auto;
+}
+
+body.page-lihat .logout-link {
+margin-top: 0;
+}
+
+body.page-lihat .main-content {
+width: 100%;
+                min-height: auto;
+                padding: 1rem;
+}
+
+body.page-lihat .brand-logo {
+width: min(250px, 100%);
+}
+}
+
+@media (max-width: 767.98px) {
+body.page-lihat .page-hero {
+align-items: stretch;
+                flex-direction: column;
+}
+
+body.page-lihat .asset-card-header {
+flex-direction: column;
+}
+
+body.page-lihat .action-buttons {
+width: 100%;
+                justify-content: flex-start;
+}
+
+body.page-lihat .detail-grid {
+grid-template-columns: 1fr;
+}
+}
+
+@media (max-width: 575.98px) {
+body.page-lihat .sidebar {
+padding: 1.15rem;
+}
+
+body.page-lihat .main-content {
+padding: .8rem;
+}
+
+body.page-lihat .card-body,
+body.page-lihat .asset-card-header {
+padding: 1.1rem;
+}
+
+body.page-lihat .bottom-actions .btn,
+body.page-lihat .action-buttons .btn {
+width: 100%;
+}
+}
+
+/*
+ * Common stylesheet menukar page hero kepada column pada <= 991.98px.
+ * Halaman lihat asal mengekalkan row sehingga <= 767.98px.
+ */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    body.page-lihat .page-hero {
+        flex-direction: row;
+    }
+}

@@ -1,0 +1,2216 @@
+/*
+ * JTDIS Asset Management
+ * Shared stylesheet untuk modul PPTM/PTM
+ *
+ * Lokasi:
+ * C:\xampp\htdocs\jdtis_asset\pages\pptm-ptm\pptm-ptm.css
+ *
+ * Digunakan oleh:
+ * dashboard.php, pengesahan.php, lihat.php, setujui.php dan tolak.php.
+ */
+
+/* =========================================================
+   DASHBOARD.PHP
+   ========================================================= */
+/*
+ * Dashboard Analitik Ketua Wilayah
+ * Dipindahkan daripada dashboard_analytics.css.
+ */
+
+body.pptm-ptm.page-dashboard {
+    --sidebar-start: #667eea;
+    --sidebar-end: #764ba2;
+    --page-bg: #f4f7fb;
+    --surface: #ffffff;
+    --text-main: #172033;
+    --text-muted: #6b7280;
+    --border-soft: #e7ebf3;
+    --shadow-soft: 0 18px 40px rgba(15, 23, 42, .08);
+    --shadow-sm: 0 8px 24px rgba(15, 23, 42, .06);
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--page-bg);
+    color: var(--text-main);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pptm-ptm.page-dashboard,
+body.pptm-ptm.page-dashboard * {
+    box-sizing: border-box;
+}
+
+body.pptm-ptm.page-dashboard > .container-fluid {
+    padding: 0;
+}
+
+body.pptm-ptm.page-dashboard > .container-fluid > .row {
+    min-height: 100vh;
+    margin: 0;
+}
+
+body.pptm-ptm.page-dashboard .analytics-sidebar {
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    color: #fff;
+    background: linear-gradient(160deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+    box-shadow: 8px 0 28px rgba(76, 29, 149, .14);
+}
+
+body.pptm-ptm.page-dashboard .brand-mark {
+    width: 46px;
+    height: 46px;
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 14px;
+    background: rgba(255,255,255,.16);
+}
+
+body.pptm-ptm.page-dashboard .role-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    margin-bottom: 1.35rem;
+    padding: .58rem .85rem;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(255,255,255,.14);
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+body.pptm-ptm.page-dashboard .analytics-sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: .72rem;
+    margin-bottom: .35rem;
+    padding: .88rem 1rem;
+    border-radius: 12px;
+    color: rgba(255,255,255,.84);
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+body.pptm-ptm.page-dashboard .analytics-sidebar .nav-link:hover,
+body.pptm-ptm.page-dashboard .analytics-sidebar .nav-link.active {
+    color: #fff;
+    background: rgba(0,0,0,.18);
+    transform: translateX(2px);
+}
+
+body.pptm-ptm.page-dashboard .analytics-sidebar .nav-link i {
+    width: 1.15rem;
+    text-align: center;
+}
+
+body.pptm-ptm.page-dashboard .nav-separator {
+    margin: 1.15rem 0;
+    border-color: rgba(255,255,255,.22);
+    opacity: 1;
+}
+
+body.pptm-ptm.page-dashboard .analytics-main {
+    min-width: 0;
+    padding: 1.4rem 1.5rem 2rem;
+}
+
+body.pptm-ptm.page-dashboard .page-hero {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+body.pptm-ptm.page-dashboard .page-title {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 800;
+    letter-spacing: -.025em;
+}
+
+body.pptm-ptm.page-dashboard .page-subtitle {
+    margin: .35rem 0 0;
+    color: var(--text-muted);
+}
+
+body.pptm-ptm.page-dashboard .page-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .68rem .95rem;
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+body.pptm-ptm.page-dashboard .filter-card,
+body.pptm-ptm.page-dashboard .card {
+    border: 0;
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: var(--shadow-soft);
+}
+
+body.pptm-ptm.page-dashboard .filter-card .card-body,
+body.pptm-ptm.page-dashboard .card-body {
+    padding: 1.2rem;
+}
+
+body.pptm-ptm.page-dashboard .card-header {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--border-soft);
+    background: transparent;
+}
+
+body.pptm-ptm.page-dashboard .form-label {
+    margin-bottom: .42rem;
+    color: #334155;
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+body.pptm-ptm.page-dashboard .form-select,
+body.pptm-ptm.page-dashboard .form-control {
+    min-height: 44px;
+    border-color: #dce3ed;
+    border-radius: 11px;
+}
+
+body.pptm-ptm.page-dashboard .form-select:focus,
+body.pptm-ptm.page-dashboard .form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 .22rem rgba(102,126,234,.15);
+}
+
+body.pptm-ptm.page-dashboard .location-sequence {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .45rem;
+    margin-top: .8rem;
+    color: var(--text-muted);
+    font-size: .88rem;
+}
+
+body.pptm-ptm.page-dashboard .scope-note {
+    padding: .75rem .9rem;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    background: #eff6ff;
+    color: #1e40af;
+    font-size: .9rem;
+}
+
+body.pptm-ptm.page-dashboard .stat-card {
+    position: relative;
+    min-height: 142px;
+    overflow: hidden;
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 16px 32px rgba(15,23,42,.13);
+}
+
+body.pptm-ptm.page-dashboard .stat-card::after {
+    content: "";
+    position: absolute;
+    right: -35px;
+    bottom: -55px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+}
+
+body.pptm-ptm.page-dashboard .stat-card .card-body {
+    position: relative;
+    z-index: 1;
+}
+
+body.pptm-ptm.page-dashboard .stat-blue { background: linear-gradient(135deg,#2563eb,#4f46e5); }
+body.pptm-ptm.page-dashboard .stat-green { background: linear-gradient(135deg,#10b981,#16a34a); }
+body.pptm-ptm.page-dashboard .stat-orange { background: linear-gradient(135deg,#f59e0b,#f97316); }
+body.pptm-ptm.page-dashboard .stat-red { background: linear-gradient(135deg,#ef4444,#dc2626); }
+body.pptm-ptm.page-dashboard .stat-cyan { background: linear-gradient(135deg,#06b6d4,#0891b2); }
+
+body.pptm-ptm.page-dashboard .stat-label {
+    color: rgba(255,255,255,.84);
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+body.pptm-ptm.page-dashboard .stat-value {
+    margin-top: .25rem;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+body.pptm-ptm.page-dashboard .stat-icon {
+    font-size: 2rem;
+    opacity: .28;
+}
+
+body.pptm-ptm.page-dashboard .chart-wrap {
+    position: relative;
+    min-height: 300px;
+}
+
+body.pptm-ptm.page-dashboard .chart-wrap canvas {
+    width: 100% !important;
+    max-height: 320px;
+}
+
+body.pptm-ptm.page-dashboard .table {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+body.pptm-ptm.page-dashboard .table thead th {
+    border-bottom-width: 1px;
+    color: #475569;
+    background: #f8fafc;
+    font-size: .82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+body.pptm-ptm.page-dashboard .table tbody td {
+    border-color: #eef2f7;
+}
+
+body.pptm-ptm.page-dashboard .empty-state {
+    padding: 2.5rem 1rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+body.pptm-ptm.page-dashboard .btn {
+    border-radius: 10px;
+    font-weight: 650;
+}
+
+@media (max-width: 991.98px) {
+    body.pptm-ptm.page-dashboard .analytics-sidebar {
+        position: static;
+        min-height: auto;
+    }
+
+    body.pptm-ptm.page-dashboard .page-hero {
+        flex-direction: column;
+    }
+
+    body.pptm-ptm.page-dashboard .page-chip {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 767.98px) {
+    body.pptm-ptm.page-dashboard .analytics-main {
+        padding: 1.15rem;
+    }
+
+    body.pptm-ptm.page-dashboard .analytics-sidebar {
+        padding: 1.25rem !important;
+    }
+
+    body.pptm-ptm.page-dashboard .chart-wrap {
+        min-height: 250px;
+    }
+}
+
+/* =========================================================
+   LIHAT.PHP
+   ========================================================= */
+body.pptm-ptm.page-lihat {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --surface: #ffffff;
+            --text-main: #172033;
+            --text-muted: #6b7280;
+            --border-soft: #e6ebf3;
+            --shadow-soft: 0 18px 45px rgba(72, 79, 150, .09);
+            --shadow-small: 0 8px 24px rgba(15, 23, 42, .06);
+            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #22c55e 100%);
+            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+body.pptm-ptm.page-lihat,
+body.pptm-ptm.page-lihat * {
+box-sizing: border-box;
+}
+
+body.pptm-ptm.page-lihat {
+margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pptm-ptm.page-lihat .sidebar {
+min-height: 100vh;
+            position: sticky;
+            top: 0;
+            color: #fff;
+            background: linear-gradient(180deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+}
+
+body.pptm-ptm.page-lihat .brand-wrap {
+display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 1.1rem;
+}
+
+body.pptm-ptm.page-lihat .brand-mark {
+width: 46px;
+            height: 46px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 14px;
+            background: rgba(255,255,255,.16);
+            border: 1px solid rgba(255,255,255,.22);
+            font-size: 1.2rem;
+}
+
+body.pptm-ptm.page-lihat .brand-title {
+margin: 0;
+            font-size: 1.65rem;
+            line-height: 1;
+            font-weight: 800;
+}
+
+body.pptm-ptm.page-lihat .brand-subtitle {
+margin: .3rem 0 0;
+            color: rgba(255,255,255,.74);
+            font-size: .86rem;
+}
+
+body.pptm-ptm.page-lihat .role-pill {
+display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            margin-bottom: 1.35rem;
+            padding: .55rem .85rem;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 999px;
+            background: rgba(255,255,255,.13);
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 600;
+}
+
+body.pptm-ptm.page-lihat .sidebar .nav-link {
+display: flex;
+            align-items: center;
+            gap: .72rem;
+            margin-bottom: .35rem;
+            padding: .88rem 1rem;
+            border-radius: 14px;
+            color: rgba(255,255,255,.84);
+            font-weight: 600;
+            transition: transform .2s ease, background-color .2s ease, color .2s ease;
+}
+
+body.pptm-ptm.page-lihat .sidebar .nav-link:hover,
+body.pptm-ptm.page-lihat .sidebar .nav-link.active {
+color: #fff;
+            background: rgba(0,0,0,.16);
+            transform: translateX(2px);
+}
+
+body.pptm-ptm.page-lihat .sidebar .nav-link .badge {
+margin-left: auto;
+}
+
+body.pptm-ptm.page-lihat .nav-separator {
+margin: 1.15rem 0;
+            border-color: rgba(255,255,255,.2) !important;
+}
+
+body.pptm-ptm.page-lihat .main-content {
+min-height: 100vh;
+            padding: 1.35rem 1.5rem 2rem;
+}
+
+body.pptm-ptm.page-lihat .page-hero {
+display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.3rem;
+}
+
+body.pptm-ptm.page-lihat .page-title {
+margin: 0;
+            font-size: clamp(1.8rem, 3vw, 2.45rem);
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -.025em;
+}
+
+body.pptm-ptm.page-lihat .page-subtitle {
+margin: .4rem 0 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+}
+
+body.pptm-ptm.page-lihat .page-chip {
+display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .68rem .95rem;
+            border: 1px solid var(--border-soft);
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: var(--shadow-small);
+            font-weight: 700;
+            white-space: nowrap;
+}
+
+body.pptm-ptm.page-lihat .card {
+border: 0;
+            border-radius: 20px;
+            background: var(--surface);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+}
+
+body.pptm-ptm.page-lihat .card-header {
+padding: 1.05rem 1.25rem;
+            border-bottom: 1px solid var(--border-soft);
+            background: transparent !important;
+}
+
+body.pptm-ptm.page-lihat .card-footer {
+border-top: 1px solid var(--border-soft);
+            background: #fff;
+}
+
+body.pptm-ptm.page-lihat .card-body {
+padding: 1.3rem;
+}
+
+body.pptm-ptm.page-lihat .stat-card {
+min-height: 150px;
+            position: relative;
+            display: block;
+            padding: 1.3rem;
+            border: 0 !important;
+            border-radius: 20px;
+            color: #fff !important;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform .2s ease, box-shadow .2s ease;
+}
+
+body.pptm-ptm.page-lihat .stat-card:hover {
+color: #fff !important;
+            transform: translateY(-4px);
+            box-shadow: 0 22px 50px rgba(31,41,55,.16);
+}
+
+body.pptm-ptm.page-lihat .stat-card.pending {
+background: var(--warning-gradient);
+}
+
+body.pptm-ptm.page-lihat .stat-card.approved {
+background: var(--success-gradient);
+}
+
+body.pptm-ptm.page-lihat .stat-card.rejected {
+background: var(--danger-gradient);
+}
+
+body.pptm-ptm.page-lihat .stat-card.total {
+background: var(--primary-gradient);
+}
+
+body.pptm-ptm.page-lihat .stat-card .card-body {
+padding: 0;
+}
+
+body.pptm-ptm.page-lihat .stat-card .card-title,
+body.pptm-ptm.page-lihat .stat-card small,
+body.pptm-ptm.page-lihat .stat-card h2,
+body.pptm-ptm.page-lihat .stat-card i {
+color: #fff !important;
+}
+
+body.pptm-ptm.page-lihat .stat-card .card-title {
+font-size: .94rem;
+            opacity: .92;
+}
+
+body.pptm-ptm.page-lihat .stat-card h2 {
+margin-top: .55rem;
+            font-size: 2.25rem;
+            font-weight: 800;
+}
+
+body.pptm-ptm.page-lihat .stat-card .stat-icon,
+body.pptm-ptm.page-lihat .stat-card > .card-body > .d-flex > i {
+width: 54px;
+            height: 54px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 16px;
+            background: rgba(255,255,255,.18);
+            opacity: 1 !important;
+            font-size: 1.45rem !important;
+}
+
+body.pptm-ptm.page-lihat .hero-note {
+border-left: 5px solid #6366f1;
+            background: #eef2ff;
+            color: #39417c;
+}
+
+body.pptm-ptm.page-lihat .soft-section {
+margin-bottom: 1rem;
+            padding: 1.05rem;
+            border: 1px solid #e7edf5;
+            border-radius: 17px;
+            background: #f9fbfd;
+}
+
+body.pptm-ptm.page-lihat .soft-section h5 {
+font-weight: 750;
+}
+
+body.pptm-ptm.page-lihat .detail-label {
+display: block;
+            width: auto !important;
+            margin-bottom: .3rem;
+            color: #64748b;
+            font-size: .77rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .035em;
+}
+
+body.pptm-ptm.page-lihat .detail-value {
+color: #111827;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+}
+
+body.pptm-ptm.page-lihat .detail-grid {
+display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .9rem;
+}
+
+body.pptm-ptm.page-lihat .detail-box {
+height: 100%;
+            padding: 1rem;
+            border: 1px solid #e8edf4;
+            border-radius: 16px;
+            background: #f8fafc;
+}
+
+body.pptm-ptm.page-lihat .alert {
+border: 0;
+            border-radius: 16px;
+            box-shadow: var(--shadow-small);
+}
+
+body.pptm-ptm.page-lihat .btn {
+border-radius: 13px;
+            padding: .72rem 1rem;
+            font-weight: 650;
+}
+
+body.pptm-ptm.page-lihat .btn-lg {
+padding: .92rem 1.2rem;
+}
+
+body.pptm-ptm.page-lihat .btn-primary {
+border: 0;
+            background: var(--primary-gradient);
+            box-shadow: 0 10px 22px rgba(59,130,246,.18);
+}
+
+body.pptm-ptm.page-lihat .btn-success {
+box-shadow: 0 10px 22px rgba(16,185,129,.17);
+}
+
+body.pptm-ptm.page-lihat .btn-danger {
+box-shadow: 0 10px 22px rgba(239,68,68,.16);
+}
+
+body.pptm-ptm.page-lihat .filter-tabs {
+display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            margin-bottom: 1.2rem;
+}
+
+body.pptm-ptm.page-lihat .filter-tabs .btn {
+border-width: 1.5px;
+            border-radius: 999px !important;
+}
+
+body.pptm-ptm.page-lihat .filter-tabs .badge {
+margin-left: .35rem;
+}
+
+body.pptm-ptm.page-lihat .table-responsive {
+border-radius: 0 0 20px 20px;
+}
+
+body.pptm-ptm.page-lihat .table {
+margin-bottom: 0;
+}
+
+body.pptm-ptm.page-lihat .table > :not(caption) > * > * {
+padding: .92rem .9rem;
+            vertical-align: middle;
+            border-color: #edf1f6;
+}
+
+body.pptm-ptm.page-lihat .table thead th {
+color: #5f6b7b;
+            background: #f8fafc;
+            font-size: .79rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            white-space: nowrap;
+}
+
+body.pptm-ptm.page-lihat .table tbody tr:hover {
+background: #fbfcff;
+}
+
+body.pptm-ptm.page-lihat .table-actions {
+display: flex;
+            flex-wrap: wrap;
+            gap: .35rem;
+}
+
+body.pptm-ptm.page-lihat .empty-state {
+padding: 3.7rem 1rem;
+            text-align: center;
+            color: #7b8798;
+}
+
+body.pptm-ptm.page-lihat .empty-state i {
+display: block;
+            margin-bottom: .8rem;
+            color: #9aa8bc;
+            font-size: 2.7rem;
+}
+
+body.pptm-ptm.page-lihat .form-control,
+body.pptm-ptm.page-lihat .form-select {
+min-height: 48px;
+            border-color: #dbe3ec;
+            border-radius: 14px;
+            padding: .72rem .92rem;
+}
+
+body.pptm-ptm.page-lihat textarea.form-control {
+min-height: 145px;
+}
+
+body.pptm-ptm.page-lihat .form-control:focus,
+body.pptm-ptm.page-lihat .form-select:focus {
+border-color: #667eea;
+            box-shadow: 0 0 0 .2rem rgba(102,126,234,.13);
+}
+
+body.pptm-ptm.page-lihat .form-label {
+color: #334155;
+            font-weight: 700;
+}
+
+body.pptm-ptm.page-lihat .decision-card {
+max-width: 950px;
+            margin: 0 auto;
+}
+
+body.pptm-ptm.page-lihat .decision-banner {
+border-radius: 18px;
+            padding: 1rem 1.1rem;
+}
+
+body.pptm-ptm.page-lihat .asset-summary {
+padding: 1.05rem;
+            border: 1px solid #e7edf4;
+            border-radius: 17px;
+            background: #f8fafc;
+}
+
+body.pptm-ptm.page-lihat .badge {
+border-radius: 999px;
+            padding: .52rem .75rem;
+            font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+body.pptm-ptm.page-lihat .sidebar {
+position: static;
+                min-height: auto;
+}
+
+body.pptm-ptm.page-lihat .main-content {
+padding: 1rem;
+}
+
+body.pptm-ptm.page-lihat .page-hero {
+flex-direction: column;
+}
+
+body.pptm-ptm.page-lihat .detail-grid {
+grid-template-columns: 1fr;
+}
+}
+
+/* =========================================================
+   PENGESAHAN.PHP
+   ========================================================= */
+body.pptm-ptm.page-pengesahan {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --surface: #ffffff;
+            --text-main: #172033;
+            --text-muted: #6b7280;
+            --border-soft: #e6ebf3;
+            --shadow-soft: 0 18px 45px rgba(72, 79, 150, .09);
+            --shadow-small: 0 8px 24px rgba(15, 23, 42, .06);
+            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #22c55e 100%);
+            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+body.pptm-ptm.page-pengesahan,
+body.pptm-ptm.page-pengesahan * {
+box-sizing: border-box;
+}
+
+body.pptm-ptm.page-pengesahan {
+margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pptm-ptm.page-pengesahan .sidebar {
+min-height: 100vh;
+            position: sticky;
+            top: 0;
+            color: #fff;
+            background: linear-gradient(180deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+}
+
+body.pptm-ptm.page-pengesahan .brand-wrap {
+display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 1.1rem;
+}
+
+body.pptm-ptm.page-pengesahan .brand-mark {
+width: 46px;
+            height: 46px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 14px;
+            background: rgba(255,255,255,.16);
+            border: 1px solid rgba(255,255,255,.22);
+            font-size: 1.2rem;
+}
+
+body.pptm-ptm.page-pengesahan .brand-title {
+margin: 0;
+            font-size: 1.65rem;
+            line-height: 1;
+            font-weight: 800;
+}
+
+body.pptm-ptm.page-pengesahan .brand-subtitle {
+margin: .3rem 0 0;
+            color: rgba(255,255,255,.74);
+            font-size: .86rem;
+}
+
+body.pptm-ptm.page-pengesahan .role-pill {
+display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            margin-bottom: 1.35rem;
+            padding: .55rem .85rem;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 999px;
+            background: rgba(255,255,255,.13);
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 600;
+}
+
+body.pptm-ptm.page-pengesahan .sidebar .nav-link {
+display: flex;
+            align-items: center;
+            gap: .72rem;
+            margin-bottom: .35rem;
+            padding: .88rem 1rem;
+            border-radius: 14px;
+            color: rgba(255,255,255,.84);
+            font-weight: 600;
+            transition: transform .2s ease, background-color .2s ease, color .2s ease;
+}
+
+body.pptm-ptm.page-pengesahan .sidebar .nav-link:hover,
+body.pptm-ptm.page-pengesahan .sidebar .nav-link.active {
+color: #fff;
+            background: rgba(0,0,0,.16);
+            transform: translateX(2px);
+}
+
+body.pptm-ptm.page-pengesahan .sidebar .nav-link .badge {
+margin-left: auto;
+}
+
+body.pptm-ptm.page-pengesahan .nav-separator {
+margin: 1.15rem 0;
+            border-color: rgba(255,255,255,.2) !important;
+}
+
+body.pptm-ptm.page-pengesahan .main-content {
+min-height: 100vh;
+            padding: 1.35rem 1.5rem 2rem;
+}
+
+body.pptm-ptm.page-pengesahan .page-hero {
+display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.3rem;
+}
+
+body.pptm-ptm.page-pengesahan .page-title {
+margin: 0;
+            font-size: clamp(1.8rem, 3vw, 2.45rem);
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -.025em;
+}
+
+body.pptm-ptm.page-pengesahan .page-subtitle {
+margin: .4rem 0 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+}
+
+body.pptm-ptm.page-pengesahan .page-chip {
+display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .68rem .95rem;
+            border: 1px solid var(--border-soft);
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: var(--shadow-small);
+            font-weight: 700;
+            white-space: nowrap;
+}
+
+body.pptm-ptm.page-pengesahan .card {
+border: 0;
+            border-radius: 20px;
+            background: var(--surface);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+}
+
+body.pptm-ptm.page-pengesahan .card-header {
+padding: 1.05rem 1.25rem;
+            border-bottom: 1px solid var(--border-soft);
+            background: transparent !important;
+}
+
+body.pptm-ptm.page-pengesahan .card-footer {
+border-top: 1px solid var(--border-soft);
+            background: #fff;
+}
+
+body.pptm-ptm.page-pengesahan .card-body {
+padding: 1.3rem;
+}
+
+body.pptm-ptm.page-pengesahan .stat-card {
+min-height: 150px;
+            position: relative;
+            display: block;
+            padding: 1.3rem;
+            border: 0 !important;
+            border-radius: 20px;
+            color: #fff !important;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform .2s ease, box-shadow .2s ease;
+}
+
+body.pptm-ptm.page-pengesahan .stat-card:hover {
+color: #fff !important;
+            transform: translateY(-4px);
+            box-shadow: 0 22px 50px rgba(31,41,55,.16);
+}
+
+body.pptm-ptm.page-pengesahan .stat-card.pending {
+background: var(--warning-gradient);
+}
+
+body.pptm-ptm.page-pengesahan .stat-card.approved {
+background: var(--success-gradient);
+}
+
+body.pptm-ptm.page-pengesahan .stat-card.rejected {
+background: var(--danger-gradient);
+}
+
+body.pptm-ptm.page-pengesahan .stat-card.total {
+background: var(--primary-gradient);
+}
+
+body.pptm-ptm.page-pengesahan .stat-card .card-body {
+padding: 0;
+}
+
+body.pptm-ptm.page-pengesahan .stat-card .card-title,
+body.pptm-ptm.page-pengesahan .stat-card small,
+body.pptm-ptm.page-pengesahan .stat-card h2,
+body.pptm-ptm.page-pengesahan .stat-card i {
+color: #fff !important;
+}
+
+body.pptm-ptm.page-pengesahan .stat-card .card-title {
+font-size: .94rem;
+            opacity: .92;
+}
+
+body.pptm-ptm.page-pengesahan .stat-card h2 {
+margin-top: .55rem;
+            font-size: 2.25rem;
+            font-weight: 800;
+}
+
+body.pptm-ptm.page-pengesahan .stat-card .stat-icon,
+body.pptm-ptm.page-pengesahan .stat-card > .card-body > .d-flex > i {
+width: 54px;
+            height: 54px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 16px;
+            background: rgba(255,255,255,.18);
+            opacity: 1 !important;
+            font-size: 1.45rem !important;
+}
+
+body.pptm-ptm.page-pengesahan .hero-note {
+border-left: 5px solid #6366f1;
+            background: #eef2ff;
+            color: #39417c;
+}
+
+body.pptm-ptm.page-pengesahan .soft-section {
+margin-bottom: 1rem;
+            padding: 1.05rem;
+            border: 1px solid #e7edf5;
+            border-radius: 17px;
+            background: #f9fbfd;
+}
+
+body.pptm-ptm.page-pengesahan .soft-section h5 {
+font-weight: 750;
+}
+
+body.pptm-ptm.page-pengesahan .detail-label {
+display: block;
+            width: auto !important;
+            margin-bottom: .3rem;
+            color: #64748b;
+            font-size: .77rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .035em;
+}
+
+body.pptm-ptm.page-pengesahan .detail-value {
+color: #111827;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+}
+
+body.pptm-ptm.page-pengesahan .detail-grid {
+display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .9rem;
+}
+
+body.pptm-ptm.page-pengesahan .detail-box {
+height: 100%;
+            padding: 1rem;
+            border: 1px solid #e8edf4;
+            border-radius: 16px;
+            background: #f8fafc;
+}
+
+body.pptm-ptm.page-pengesahan .alert {
+border: 0;
+            border-radius: 16px;
+            box-shadow: var(--shadow-small);
+}
+
+body.pptm-ptm.page-pengesahan .btn {
+border-radius: 13px;
+            padding: .72rem 1rem;
+            font-weight: 650;
+}
+
+body.pptm-ptm.page-pengesahan .btn-lg {
+padding: .92rem 1.2rem;
+}
+
+body.pptm-ptm.page-pengesahan .btn-primary {
+border: 0;
+            background: var(--primary-gradient);
+            box-shadow: 0 10px 22px rgba(59,130,246,.18);
+}
+
+body.pptm-ptm.page-pengesahan .btn-success {
+box-shadow: 0 10px 22px rgba(16,185,129,.17);
+}
+
+body.pptm-ptm.page-pengesahan .btn-danger {
+box-shadow: 0 10px 22px rgba(239,68,68,.16);
+}
+
+body.pptm-ptm.page-pengesahan .filter-tabs {
+display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            margin-bottom: 1.2rem;
+}
+
+body.pptm-ptm.page-pengesahan .filter-tabs .btn {
+border-width: 1.5px;
+            border-radius: 999px !important;
+}
+
+body.pptm-ptm.page-pengesahan .filter-tabs .badge {
+margin-left: .35rem;
+}
+
+body.pptm-ptm.page-pengesahan .table-responsive {
+border-radius: 0 0 20px 20px;
+}
+
+body.pptm-ptm.page-pengesahan .table {
+margin-bottom: 0;
+}
+
+body.pptm-ptm.page-pengesahan .table > :not(caption) > * > * {
+padding: .92rem .9rem;
+            vertical-align: middle;
+            border-color: #edf1f6;
+}
+
+body.pptm-ptm.page-pengesahan .table thead th {
+color: #5f6b7b;
+            background: #f8fafc;
+            font-size: .79rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            white-space: nowrap;
+}
+
+body.pptm-ptm.page-pengesahan .table tbody tr:hover {
+background: #fbfcff;
+}
+
+body.pptm-ptm.page-pengesahan .table-actions {
+display: flex;
+            flex-wrap: wrap;
+            gap: .35rem;
+}
+
+body.pptm-ptm.page-pengesahan .empty-state {
+padding: 3.7rem 1rem;
+            text-align: center;
+            color: #7b8798;
+}
+
+body.pptm-ptm.page-pengesahan .empty-state i {
+display: block;
+            margin-bottom: .8rem;
+            color: #9aa8bc;
+            font-size: 2.7rem;
+}
+
+body.pptm-ptm.page-pengesahan .form-control,
+body.pptm-ptm.page-pengesahan .form-select {
+min-height: 48px;
+            border-color: #dbe3ec;
+            border-radius: 14px;
+            padding: .72rem .92rem;
+}
+
+body.pptm-ptm.page-pengesahan textarea.form-control {
+min-height: 145px;
+}
+
+body.pptm-ptm.page-pengesahan .form-control:focus,
+body.pptm-ptm.page-pengesahan .form-select:focus {
+border-color: #667eea;
+            box-shadow: 0 0 0 .2rem rgba(102,126,234,.13);
+}
+
+body.pptm-ptm.page-pengesahan .form-label {
+color: #334155;
+            font-weight: 700;
+}
+
+body.pptm-ptm.page-pengesahan .decision-card {
+max-width: 950px;
+            margin: 0 auto;
+}
+
+body.pptm-ptm.page-pengesahan .decision-banner {
+border-radius: 18px;
+            padding: 1rem 1.1rem;
+}
+
+body.pptm-ptm.page-pengesahan .asset-summary {
+padding: 1.05rem;
+            border: 1px solid #e7edf4;
+            border-radius: 17px;
+            background: #f8fafc;
+}
+
+body.pptm-ptm.page-pengesahan .badge {
+border-radius: 999px;
+            padding: .52rem .75rem;
+            font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+body.pptm-ptm.page-pengesahan .sidebar {
+position: static;
+                min-height: auto;
+}
+
+body.pptm-ptm.page-pengesahan .main-content {
+padding: 1rem;
+}
+
+body.pptm-ptm.page-pengesahan .page-hero {
+flex-direction: column;
+}
+
+body.pptm-ptm.page-pengesahan .detail-grid {
+grid-template-columns: 1fr;
+}
+}
+
+/* =========================================================
+   SETUJUI.PHP
+   ========================================================= */
+body.pptm-ptm.page-setujui {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --surface: #ffffff;
+            --text-main: #172033;
+            --text-muted: #6b7280;
+            --border-soft: #e6ebf3;
+            --shadow-soft: 0 18px 45px rgba(72, 79, 150, .09);
+            --shadow-small: 0 8px 24px rgba(15, 23, 42, .06);
+            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #22c55e 100%);
+            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+body.pptm-ptm.page-setujui,
+body.pptm-ptm.page-setujui * {
+box-sizing: border-box;
+}
+
+body.pptm-ptm.page-setujui {
+margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pptm-ptm.page-setujui .sidebar {
+min-height: 100vh;
+            position: sticky;
+            top: 0;
+            color: #fff;
+            background: linear-gradient(180deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+}
+
+body.pptm-ptm.page-setujui .brand-wrap {
+display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 1.1rem;
+}
+
+body.pptm-ptm.page-setujui .brand-mark {
+width: 46px;
+            height: 46px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 14px;
+            background: rgba(255,255,255,.16);
+            border: 1px solid rgba(255,255,255,.22);
+            font-size: 1.2rem;
+}
+
+body.pptm-ptm.page-setujui .brand-title {
+margin: 0;
+            font-size: 1.65rem;
+            line-height: 1;
+            font-weight: 800;
+}
+
+body.pptm-ptm.page-setujui .brand-subtitle {
+margin: .3rem 0 0;
+            color: rgba(255,255,255,.74);
+            font-size: .86rem;
+}
+
+body.pptm-ptm.page-setujui .role-pill {
+display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            margin-bottom: 1.35rem;
+            padding: .55rem .85rem;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 999px;
+            background: rgba(255,255,255,.13);
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 600;
+}
+
+body.pptm-ptm.page-setujui .sidebar .nav-link {
+display: flex;
+            align-items: center;
+            gap: .72rem;
+            margin-bottom: .35rem;
+            padding: .88rem 1rem;
+            border-radius: 14px;
+            color: rgba(255,255,255,.84);
+            font-weight: 600;
+            transition: transform .2s ease, background-color .2s ease, color .2s ease;
+}
+
+body.pptm-ptm.page-setujui .sidebar .nav-link:hover,
+body.pptm-ptm.page-setujui .sidebar .nav-link.active {
+color: #fff;
+            background: rgba(0,0,0,.16);
+            transform: translateX(2px);
+}
+
+body.pptm-ptm.page-setujui .sidebar .nav-link .badge {
+margin-left: auto;
+}
+
+body.pptm-ptm.page-setujui .nav-separator {
+margin: 1.15rem 0;
+            border-color: rgba(255,255,255,.2) !important;
+}
+
+body.pptm-ptm.page-setujui .main-content {
+min-height: 100vh;
+            padding: 1.35rem 1.5rem 2rem;
+}
+
+body.pptm-ptm.page-setujui .page-hero {
+display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.3rem;
+}
+
+body.pptm-ptm.page-setujui .page-title {
+margin: 0;
+            font-size: clamp(1.8rem, 3vw, 2.45rem);
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -.025em;
+}
+
+body.pptm-ptm.page-setujui .page-subtitle {
+margin: .4rem 0 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+}
+
+body.pptm-ptm.page-setujui .page-chip {
+display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .68rem .95rem;
+            border: 1px solid var(--border-soft);
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: var(--shadow-small);
+            font-weight: 700;
+            white-space: nowrap;
+}
+
+body.pptm-ptm.page-setujui .card {
+border: 0;
+            border-radius: 20px;
+            background: var(--surface);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+}
+
+body.pptm-ptm.page-setujui .card-header {
+padding: 1.05rem 1.25rem;
+            border-bottom: 1px solid var(--border-soft);
+            background: transparent !important;
+}
+
+body.pptm-ptm.page-setujui .card-footer {
+border-top: 1px solid var(--border-soft);
+            background: #fff;
+}
+
+body.pptm-ptm.page-setujui .card-body {
+padding: 1.3rem;
+}
+
+body.pptm-ptm.page-setujui .stat-card {
+min-height: 150px;
+            position: relative;
+            display: block;
+            padding: 1.3rem;
+            border: 0 !important;
+            border-radius: 20px;
+            color: #fff !important;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform .2s ease, box-shadow .2s ease;
+}
+
+body.pptm-ptm.page-setujui .stat-card:hover {
+color: #fff !important;
+            transform: translateY(-4px);
+            box-shadow: 0 22px 50px rgba(31,41,55,.16);
+}
+
+body.pptm-ptm.page-setujui .stat-card.pending {
+background: var(--warning-gradient);
+}
+
+body.pptm-ptm.page-setujui .stat-card.approved {
+background: var(--success-gradient);
+}
+
+body.pptm-ptm.page-setujui .stat-card.rejected {
+background: var(--danger-gradient);
+}
+
+body.pptm-ptm.page-setujui .stat-card.total {
+background: var(--primary-gradient);
+}
+
+body.pptm-ptm.page-setujui .stat-card .card-body {
+padding: 0;
+}
+
+body.pptm-ptm.page-setujui .stat-card .card-title,
+body.pptm-ptm.page-setujui .stat-card small,
+body.pptm-ptm.page-setujui .stat-card h2,
+body.pptm-ptm.page-setujui .stat-card i {
+color: #fff !important;
+}
+
+body.pptm-ptm.page-setujui .stat-card .card-title {
+font-size: .94rem;
+            opacity: .92;
+}
+
+body.pptm-ptm.page-setujui .stat-card h2 {
+margin-top: .55rem;
+            font-size: 2.25rem;
+            font-weight: 800;
+}
+
+body.pptm-ptm.page-setujui .stat-card .stat-icon,
+body.pptm-ptm.page-setujui .stat-card > .card-body > .d-flex > i {
+width: 54px;
+            height: 54px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 16px;
+            background: rgba(255,255,255,.18);
+            opacity: 1 !important;
+            font-size: 1.45rem !important;
+}
+
+body.pptm-ptm.page-setujui .hero-note {
+border-left: 5px solid #6366f1;
+            background: #eef2ff;
+            color: #39417c;
+}
+
+body.pptm-ptm.page-setujui .soft-section {
+margin-bottom: 1rem;
+            padding: 1.05rem;
+            border: 1px solid #e7edf5;
+            border-radius: 17px;
+            background: #f9fbfd;
+}
+
+body.pptm-ptm.page-setujui .soft-section h5 {
+font-weight: 750;
+}
+
+body.pptm-ptm.page-setujui .detail-label {
+display: block;
+            width: auto !important;
+            margin-bottom: .3rem;
+            color: #64748b;
+            font-size: .77rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .035em;
+}
+
+body.pptm-ptm.page-setujui .detail-value {
+color: #111827;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+}
+
+body.pptm-ptm.page-setujui .detail-grid {
+display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .9rem;
+}
+
+body.pptm-ptm.page-setujui .detail-box {
+height: 100%;
+            padding: 1rem;
+            border: 1px solid #e8edf4;
+            border-radius: 16px;
+            background: #f8fafc;
+}
+
+body.pptm-ptm.page-setujui .alert {
+border: 0;
+            border-radius: 16px;
+            box-shadow: var(--shadow-small);
+}
+
+body.pptm-ptm.page-setujui .btn {
+border-radius: 13px;
+            padding: .72rem 1rem;
+            font-weight: 650;
+}
+
+body.pptm-ptm.page-setujui .btn-lg {
+padding: .92rem 1.2rem;
+}
+
+body.pptm-ptm.page-setujui .btn-primary {
+border: 0;
+            background: var(--primary-gradient);
+            box-shadow: 0 10px 22px rgba(59,130,246,.18);
+}
+
+body.pptm-ptm.page-setujui .btn-success {
+box-shadow: 0 10px 22px rgba(16,185,129,.17);
+}
+
+body.pptm-ptm.page-setujui .btn-danger {
+box-shadow: 0 10px 22px rgba(239,68,68,.16);
+}
+
+body.pptm-ptm.page-setujui .filter-tabs {
+display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            margin-bottom: 1.2rem;
+}
+
+body.pptm-ptm.page-setujui .filter-tabs .btn {
+border-width: 1.5px;
+            border-radius: 999px !important;
+}
+
+body.pptm-ptm.page-setujui .filter-tabs .badge {
+margin-left: .35rem;
+}
+
+body.pptm-ptm.page-setujui .table-responsive {
+border-radius: 0 0 20px 20px;
+}
+
+body.pptm-ptm.page-setujui .table {
+margin-bottom: 0;
+}
+
+body.pptm-ptm.page-setujui .table > :not(caption) > * > * {
+padding: .92rem .9rem;
+            vertical-align: middle;
+            border-color: #edf1f6;
+}
+
+body.pptm-ptm.page-setujui .table thead th {
+color: #5f6b7b;
+            background: #f8fafc;
+            font-size: .79rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            white-space: nowrap;
+}
+
+body.pptm-ptm.page-setujui .table tbody tr:hover {
+background: #fbfcff;
+}
+
+body.pptm-ptm.page-setujui .table-actions {
+display: flex;
+            flex-wrap: wrap;
+            gap: .35rem;
+}
+
+body.pptm-ptm.page-setujui .empty-state {
+padding: 3.7rem 1rem;
+            text-align: center;
+            color: #7b8798;
+}
+
+body.pptm-ptm.page-setujui .empty-state i {
+display: block;
+            margin-bottom: .8rem;
+            color: #9aa8bc;
+            font-size: 2.7rem;
+}
+
+body.pptm-ptm.page-setujui .form-control,
+body.pptm-ptm.page-setujui .form-select {
+min-height: 48px;
+            border-color: #dbe3ec;
+            border-radius: 14px;
+            padding: .72rem .92rem;
+}
+
+body.pptm-ptm.page-setujui textarea.form-control {
+min-height: 145px;
+}
+
+body.pptm-ptm.page-setujui .form-control:focus,
+body.pptm-ptm.page-setujui .form-select:focus {
+border-color: #667eea;
+            box-shadow: 0 0 0 .2rem rgba(102,126,234,.13);
+}
+
+body.pptm-ptm.page-setujui .form-label {
+color: #334155;
+            font-weight: 700;
+}
+
+body.pptm-ptm.page-setujui .decision-card {
+max-width: 950px;
+            margin: 0 auto;
+}
+
+body.pptm-ptm.page-setujui .decision-banner {
+border-radius: 18px;
+            padding: 1rem 1.1rem;
+}
+
+body.pptm-ptm.page-setujui .asset-summary {
+padding: 1.05rem;
+            border: 1px solid #e7edf4;
+            border-radius: 17px;
+            background: #f8fafc;
+}
+
+body.pptm-ptm.page-setujui .badge {
+border-radius: 999px;
+            padding: .52rem .75rem;
+            font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+body.pptm-ptm.page-setujui .sidebar {
+position: static;
+                min-height: auto;
+}
+
+body.pptm-ptm.page-setujui .main-content {
+padding: 1rem;
+}
+
+body.pptm-ptm.page-setujui .page-hero {
+flex-direction: column;
+}
+
+body.pptm-ptm.page-setujui .detail-grid {
+grid-template-columns: 1fr;
+}
+}
+
+/* =========================================================
+   TOLAK.PHP
+   ========================================================= */
+body.pptm-ptm.page-tolak {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --surface: #ffffff;
+            --text-main: #172033;
+            --text-muted: #6b7280;
+            --border-soft: #e6ebf3;
+            --shadow-soft: 0 18px 45px rgba(72, 79, 150, .09);
+            --shadow-small: 0 8px 24px rgba(15, 23, 42, .06);
+            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #22c55e 100%);
+            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+body.pptm-ptm.page-tolak,
+body.pptm-ptm.page-tolak * {
+box-sizing: border-box;
+}
+
+body.pptm-ptm.page-tolak {
+margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pptm-ptm.page-tolak .sidebar {
+min-height: 100vh;
+            position: sticky;
+            top: 0;
+            color: #fff;
+            background: linear-gradient(180deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+}
+
+body.pptm-ptm.page-tolak .brand-wrap {
+display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 1.1rem;
+}
+
+body.pptm-ptm.page-tolak .brand-mark {
+width: 46px;
+            height: 46px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 14px;
+            background: rgba(255,255,255,.16);
+            border: 1px solid rgba(255,255,255,.22);
+            font-size: 1.2rem;
+}
+
+body.pptm-ptm.page-tolak .brand-title {
+margin: 0;
+            font-size: 1.65rem;
+            line-height: 1;
+            font-weight: 800;
+}
+
+body.pptm-ptm.page-tolak .brand-subtitle {
+margin: .3rem 0 0;
+            color: rgba(255,255,255,.74);
+            font-size: .86rem;
+}
+
+body.pptm-ptm.page-tolak .role-pill {
+display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            margin-bottom: 1.35rem;
+            padding: .55rem .85rem;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 999px;
+            background: rgba(255,255,255,.13);
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 600;
+}
+
+body.pptm-ptm.page-tolak .sidebar .nav-link {
+display: flex;
+            align-items: center;
+            gap: .72rem;
+            margin-bottom: .35rem;
+            padding: .88rem 1rem;
+            border-radius: 14px;
+            color: rgba(255,255,255,.84);
+            font-weight: 600;
+            transition: transform .2s ease, background-color .2s ease, color .2s ease;
+}
+
+body.pptm-ptm.page-tolak .sidebar .nav-link:hover,
+body.pptm-ptm.page-tolak .sidebar .nav-link.active {
+color: #fff;
+            background: rgba(0,0,0,.16);
+            transform: translateX(2px);
+}
+
+body.pptm-ptm.page-tolak .sidebar .nav-link .badge {
+margin-left: auto;
+}
+
+body.pptm-ptm.page-tolak .nav-separator {
+margin: 1.15rem 0;
+            border-color: rgba(255,255,255,.2) !important;
+}
+
+body.pptm-ptm.page-tolak .main-content {
+min-height: 100vh;
+            padding: 1.35rem 1.5rem 2rem;
+}
+
+body.pptm-ptm.page-tolak .page-hero {
+display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.3rem;
+}
+
+body.pptm-ptm.page-tolak .page-title {
+margin: 0;
+            font-size: clamp(1.8rem, 3vw, 2.45rem);
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -.025em;
+}
+
+body.pptm-ptm.page-tolak .page-subtitle {
+margin: .4rem 0 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+}
+
+body.pptm-ptm.page-tolak .page-chip {
+display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .68rem .95rem;
+            border: 1px solid var(--border-soft);
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: var(--shadow-small);
+            font-weight: 700;
+            white-space: nowrap;
+}
+
+body.pptm-ptm.page-tolak .card {
+border: 0;
+            border-radius: 20px;
+            background: var(--surface);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+}
+
+body.pptm-ptm.page-tolak .card-header {
+padding: 1.05rem 1.25rem;
+            border-bottom: 1px solid var(--border-soft);
+            background: transparent !important;
+}
+
+body.pptm-ptm.page-tolak .card-footer {
+border-top: 1px solid var(--border-soft);
+            background: #fff;
+}
+
+body.pptm-ptm.page-tolak .card-body {
+padding: 1.3rem;
+}
+
+body.pptm-ptm.page-tolak .stat-card {
+min-height: 150px;
+            position: relative;
+            display: block;
+            padding: 1.3rem;
+            border: 0 !important;
+            border-radius: 20px;
+            color: #fff !important;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform .2s ease, box-shadow .2s ease;
+}
+
+body.pptm-ptm.page-tolak .stat-card:hover {
+color: #fff !important;
+            transform: translateY(-4px);
+            box-shadow: 0 22px 50px rgba(31,41,55,.16);
+}
+
+body.pptm-ptm.page-tolak .stat-card.pending {
+background: var(--warning-gradient);
+}
+
+body.pptm-ptm.page-tolak .stat-card.approved {
+background: var(--success-gradient);
+}
+
+body.pptm-ptm.page-tolak .stat-card.rejected {
+background: var(--danger-gradient);
+}
+
+body.pptm-ptm.page-tolak .stat-card.total {
+background: var(--primary-gradient);
+}
+
+body.pptm-ptm.page-tolak .stat-card .card-body {
+padding: 0;
+}
+
+body.pptm-ptm.page-tolak .stat-card .card-title,
+body.pptm-ptm.page-tolak .stat-card small,
+body.pptm-ptm.page-tolak .stat-card h2,
+body.pptm-ptm.page-tolak .stat-card i {
+color: #fff !important;
+}
+
+body.pptm-ptm.page-tolak .stat-card .card-title {
+font-size: .94rem;
+            opacity: .92;
+}
+
+body.pptm-ptm.page-tolak .stat-card h2 {
+margin-top: .55rem;
+            font-size: 2.25rem;
+            font-weight: 800;
+}
+
+body.pptm-ptm.page-tolak .stat-card .stat-icon,
+body.pptm-ptm.page-tolak .stat-card > .card-body > .d-flex > i {
+width: 54px;
+            height: 54px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 16px;
+            background: rgba(255,255,255,.18);
+            opacity: 1 !important;
+            font-size: 1.45rem !important;
+}
+
+body.pptm-ptm.page-tolak .hero-note {
+border-left: 5px solid #6366f1;
+            background: #eef2ff;
+            color: #39417c;
+}
+
+body.pptm-ptm.page-tolak .soft-section {
+margin-bottom: 1rem;
+            padding: 1.05rem;
+            border: 1px solid #e7edf5;
+            border-radius: 17px;
+            background: #f9fbfd;
+}
+
+body.pptm-ptm.page-tolak .soft-section h5 {
+font-weight: 750;
+}
+
+body.pptm-ptm.page-tolak .detail-label {
+display: block;
+            width: auto !important;
+            margin-bottom: .3rem;
+            color: #64748b;
+            font-size: .77rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .035em;
+}
+
+body.pptm-ptm.page-tolak .detail-value {
+color: #111827;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+}
+
+body.pptm-ptm.page-tolak .detail-grid {
+display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .9rem;
+}
+
+body.pptm-ptm.page-tolak .detail-box {
+height: 100%;
+            padding: 1rem;
+            border: 1px solid #e8edf4;
+            border-radius: 16px;
+            background: #f8fafc;
+}
+
+body.pptm-ptm.page-tolak .alert {
+border: 0;
+            border-radius: 16px;
+            box-shadow: var(--shadow-small);
+}
+
+body.pptm-ptm.page-tolak .btn {
+border-radius: 13px;
+            padding: .72rem 1rem;
+            font-weight: 650;
+}
+
+body.pptm-ptm.page-tolak .btn-lg {
+padding: .92rem 1.2rem;
+}
+
+body.pptm-ptm.page-tolak .btn-primary {
+border: 0;
+            background: var(--primary-gradient);
+            box-shadow: 0 10px 22px rgba(59,130,246,.18);
+}
+
+body.pptm-ptm.page-tolak .btn-success {
+box-shadow: 0 10px 22px rgba(16,185,129,.17);
+}
+
+body.pptm-ptm.page-tolak .btn-danger {
+box-shadow: 0 10px 22px rgba(239,68,68,.16);
+}
+
+body.pptm-ptm.page-tolak .filter-tabs {
+display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            margin-bottom: 1.2rem;
+}
+
+body.pptm-ptm.page-tolak .filter-tabs .btn {
+border-width: 1.5px;
+            border-radius: 999px !important;
+}
+
+body.pptm-ptm.page-tolak .filter-tabs .badge {
+margin-left: .35rem;
+}
+
+body.pptm-ptm.page-tolak .table-responsive {
+border-radius: 0 0 20px 20px;
+}
+
+body.pptm-ptm.page-tolak .table {
+margin-bottom: 0;
+}
+
+body.pptm-ptm.page-tolak .table > :not(caption) > * > * {
+padding: .92rem .9rem;
+            vertical-align: middle;
+            border-color: #edf1f6;
+}
+
+body.pptm-ptm.page-tolak .table thead th {
+color: #5f6b7b;
+            background: #f8fafc;
+            font-size: .79rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            white-space: nowrap;
+}
+
+body.pptm-ptm.page-tolak .table tbody tr:hover {
+background: #fbfcff;
+}
+
+body.pptm-ptm.page-tolak .table-actions {
+display: flex;
+            flex-wrap: wrap;
+            gap: .35rem;
+}
+
+body.pptm-ptm.page-tolak .empty-state {
+padding: 3.7rem 1rem;
+            text-align: center;
+            color: #7b8798;
+}
+
+body.pptm-ptm.page-tolak .empty-state i {
+display: block;
+            margin-bottom: .8rem;
+            color: #9aa8bc;
+            font-size: 2.7rem;
+}
+
+body.pptm-ptm.page-tolak .form-control,
+body.pptm-ptm.page-tolak .form-select {
+min-height: 48px;
+            border-color: #dbe3ec;
+            border-radius: 14px;
+            padding: .72rem .92rem;
+}
+
+body.pptm-ptm.page-tolak textarea.form-control {
+min-height: 145px;
+}
+
+body.pptm-ptm.page-tolak .form-control:focus,
+body.pptm-ptm.page-tolak .form-select:focus {
+border-color: #667eea;
+            box-shadow: 0 0 0 .2rem rgba(102,126,234,.13);
+}
+
+body.pptm-ptm.page-tolak .form-label {
+color: #334155;
+            font-weight: 700;
+}
+
+body.pptm-ptm.page-tolak .decision-card {
+max-width: 950px;
+            margin: 0 auto;
+}
+
+body.pptm-ptm.page-tolak .decision-banner {
+border-radius: 18px;
+            padding: 1rem 1.1rem;
+}
+
+body.pptm-ptm.page-tolak .asset-summary {
+padding: 1.05rem;
+            border: 1px solid #e7edf4;
+            border-radius: 17px;
+            background: #f8fafc;
+}
+
+body.pptm-ptm.page-tolak .badge {
+border-radius: 999px;
+            padding: .52rem .75rem;
+            font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+body.pptm-ptm.page-tolak .sidebar {
+position: static;
+                min-height: auto;
+}
+
+body.pptm-ptm.page-tolak .main-content {
+padding: 1rem;
+}
+
+body.pptm-ptm.page-tolak .page-hero {
+flex-direction: column;
+}
+
+body.pptm-ptm.page-tolak .detail-grid {
+grid-template-columns: 1fr;
+}
+}
+
+/* =========================================================
+   SHARED PPTM/PTM UTILITIES
+   ========================================================= */
+
+body.pptm-ptm {
+    min-height: 100vh;
+}
+
+body.pptm-ptm > .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body.pptm-ptm > .container-fluid > .row {
+    min-height: 100vh;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body.pptm-ptm .sidebar-divider {
+    width: 100%;
+    margin: 1.15rem 0;
+    border-color: rgba(255, 255, 255, .2);
+    opacity: 1;
+}
+
+body.pptm-ptm .main-content {
+    min-width: 0;
+}
+
+@media (max-width: 767.98px) {
+    body.pptm-ptm > .container-fluid > .row {
+        min-height: auto;
+    }
+}
+
+/* =========================================================
+   DYNAMIC STATUS COLOR HELPERS
+   ========================================================= */
+
+body.pptm-ptm .status-color-secondary {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+body.pptm-ptm .status-color-success {
+    color: #fff;
+    background-color: #198754;
+}
+
+body.pptm-ptm .status-color-danger {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+body.pptm-ptm .status-color-warning {
+    color: #212529;
+    background-color: #ffc107;
+}
+
+body.pptm-ptm .status-color-info {
+    color: #212529;
+    background-color: #0dcaf0;
+}
+
+body.pptm-ptm .status-color-primary {
+    color: #fff;
+    background-color: #0d6efd;
+}
+
+body.pptm-ptm .status-color-dark {
+    color: #fff;
+    background-color: #212529;
+}
+
+body.pptm-ptm .empty-state-icon {
+    font-size: 2.5rem;
+    opacity: .4;
+}

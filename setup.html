@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persediaan JTDIS Aset</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2>Panduan Persediaan Sistem JTDIS Aset</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4>Langkah-langkah Pemasangan:</h4>
+                        
+                        <div class="alert alert-info mt-4">
+                            <h5>1️⃣ Buka phpMyAdmin</h5>
+                            <p>Akses: <a href="http://localhost/phpmyadmin" target="_blank">http://localhost/phpmyadmin</a></p>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <h5>2️⃣ Cipta Database Baru</h5>
+                            <ul>
+                                <li>Nama Database: <code>jtdis_asset</code></li>
+                                <li>Collation: <code>utf8mb4_general_ci</code></li>
+                                <li>Klik "Cipta"</li>
+                            </ul>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <h5>3️⃣ Import Schema</h5>
+                            <ol>
+                                <li>Pilih database <code>jtdis_asset</code></li>
+                                <li>Pergi ke tab "Import"</li>
+                                <li>Pilih file: <code>jtdis_asset.sql</code></li>
+                                <li>Klik "Go" / "Jalan"</li>
+                            </ol>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <h5>4️⃣ Import Data Sampel</h5>
+                            <ol>
+                                <li>Pilih database <code>jtdis_asset</code></li>
+                                <li>Pergi ke tab "Import"</li>
+                                <li>Pilih file: <code>setup_data.sql</code></li>
+                                <li>Klik "Go" / "Jalan"</li>
+                            </ol>
+                        </div>
+
+                        <div class="alert alert-success mt-4">
+                            <h5>✅ Selesai!</h5>
+                            <p>Anda boleh log masuk dengan:</p>
+                            <ul>
+                                <li><strong>Emel:</strong> admin@jtdis.gov.my</li>
+                                <li><strong>Kata Laluan:</strong> 12345678</li>
+                            </ul>
+                            <a href="pages/login.php" class="btn btn-primary mt-3">Pergi ke Log Masuk</a>
+                        </div>
+
+                        <div class="alert alert-warning">
+                            <h5>⚠️ Maklumat Penting</h5>
+                            <ul>
+                                <li>Pastikan MySQL/MariaDB sedang berjalan</li>
+                                <li>Gunakan phpMyAdmin untuk import file SQL</li>
+                                <li>Tukar kata laluan admin selepas log masuk pertama</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

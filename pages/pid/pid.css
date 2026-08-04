@@ -1,0 +1,1238 @@
+/*
+ * JTDIS Asset Management
+ * Shared stylesheet untuk modul PID
+ *
+ * Lokasi:
+ * C:\xampp\htdocs\jdtis_asset\pages\pid\pid.css
+ *
+ * Digunakan oleh:
+ * dashboard.php, senarai_aset.php, tambah.php, edit.php,
+ * lihat.php, selenggara.php dan hapus.php.
+ */
+
+/* =========================================================
+   DASHBOARD.PHP
+   ========================================================= */
+body.pid.page-dashboard {
+--sidebar-start:#667eea; --sidebar-end:#764ba2; --page-bg:#f4f7fb; --text:#1f2937; --muted:#6b7280;
+}
+
+body.pid.page-dashboard,
+body.pid.page-dashboard * {
+box-sizing:border-box;
+}
+
+body.pid.page-dashboard {
+margin:0; background:var(--page-bg); color:var(--text); font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body.pid.page-dashboard .sidebar {
+min-height:100vh; color:#fff; background:linear-gradient(135deg,var(--sidebar-start),var(--sidebar-end)); position:sticky; top:0;
+}
+
+body.pid.page-dashboard .brand-mark {
+width:44px; height:44px; display:inline-grid; place-items:center; border-radius:13px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.22);
+}
+
+body.pid.page-dashboard .nav-link {
+margin-bottom:.35rem; padding:.75rem .9rem; color:rgba(255,255,255,.82); border-radius:8px;
+}
+
+body.pid.page-dashboard .nav-link:hover,
+body.pid.page-dashboard .nav-link.active {
+color:#fff; background:rgba(0,0,0,.2);
+}
+
+body.pid.page-dashboard .nav-link i {
+width:24px;
+}
+
+body.pid.page-dashboard .content-card {
+border:0; border-radius:16px; box-shadow:0 4px 18px rgba(31,41,55,.07);
+}
+
+body.pid.page-dashboard .stat-link {
+display:block; height:100%; color:inherit; text-decoration:none;
+}
+
+body.pid.page-dashboard .stat-card {
+height:100%; color:#fff; border:0; border-radius:16px; box-shadow:0 4px 14px rgba(31,41,55,.1); transition:transform .15s,box-shadow .15s;
+}
+
+body.pid.page-dashboard .stat-link:hover .stat-card {
+transform:translateY(-3px); box-shadow:0 6px 20px rgba(0,0,0,.12);
+}
+
+body.pid.page-dashboard .stat-card.pending {
+background:linear-gradient(135deg,#f59e0b,#d97706);
+}
+
+body.pid.page-dashboard .stat-card.approved {
+background:linear-gradient(135deg,#22c55e,#15803d);
+}
+
+body.pid.page-dashboard .stat-card.rejected {
+background:linear-gradient(135deg,#ef4444,#b91c1c);
+}
+
+body.pid.page-dashboard .stat-card.total {
+background:linear-gradient(135deg,#3b82f6,#1d4ed8);
+}
+
+body.pid.page-dashboard .stat-number {
+font-size:2rem; font-weight:800; line-height:1;
+}
+
+body.pid.page-dashboard .stat-label {
+margin-top:.55rem; color:rgba(255,255,255,.92); font-size:.9rem;
+}
+
+body.pid.page-dashboard .stat-icon {
+width:50px; height:50px; display:grid; place-items:center; border-radius:14px; background:rgba(255,255,255,.18); font-size:1.45rem;
+}
+
+body.pid.page-dashboard .agency-banner {
+border:1px solid #c7d2fe; border-radius:14px; background:#eef2ff; color:#3730a3;
+}
+
+body.pid.page-dashboard .table>:not(caption)>*>* {
+padding:.85rem .75rem; vertical-align:middle;
+}
+
+body.pid.page-dashboard .table thead th {
+color:#4b5563; background:#f8fafc; font-size:.78rem; text-transform:uppercase; letter-spacing:.035em; white-space:nowrap;
+}
+
+body.pid.page-dashboard .asset-number {
+color:#3730a3; font-weight:750; text-decoration:none;
+}
+
+body.pid.page-dashboard .asset-number:hover {
+text-decoration:underline;
+}
+
+body.pid.page-dashboard .reject-note {
+max-width:360px; white-space:normal; overflow-wrap:anywhere;
+}
+
+body.pid.page-dashboard .empty-state {
+padding:3rem 1rem; text-align:center; color:var(--muted);
+}
+
+body.pid.page-dashboard .empty-state i {
+display:block; margin-bottom:.75rem; color:#94a3b8; font-size:2.6rem;
+}
+
+body.pid.page-dashboard .quick-action {
+min-width:min(100%,330px); padding:.9rem 1.5rem; font-weight:700; border-radius:12px;
+}
+
+@media (max-width:767.98px) {
+body.pid.page-dashboard .sidebar {
+min-height:auto; position:static;
+}
+
+body.pid.page-dashboard .sidebar nav {
+display:flex; flex-flow:row wrap; gap:.25rem;
+}
+}
+
+/* =========================================================
+   EDIT.PHP
+   ========================================================= */
+body.pid.page-edit {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --text-main: #1f2937;
+}
+
+body.pid.page-edit,
+body.pid.page-edit * {
+box-sizing: border-box;
+}
+
+body.pid.page-edit {
+margin: 0;
+            padding-bottom: 110px;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pid.page-edit .sidebar {
+min-height: 100vh;
+            color: #fff;
+            background: linear-gradient(135deg, var(--sidebar-start), var(--sidebar-end));
+            position: sticky;
+            top: 0;
+}
+
+body.pid.page-edit .brand-mark {
+width: 44px;
+            height: 44px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 13px;
+            background: rgba(255, 255, 255, .16);
+            border: 1px solid rgba(255, 255, 255, .22);
+}
+
+body.pid.page-edit .nav-link {
+margin-bottom: .35rem;
+            padding: .75rem .9rem;
+            color: rgba(255, 255, 255, .82);
+            border-radius: 8px;
+}
+
+body.pid.page-edit .nav-link:hover,
+body.pid.page-edit .nav-link.active {
+color: #fff;
+            background: rgba(0, 0, 0, .2);
+}
+
+body.pid.page-edit .form-card {
+border: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(31, 41, 55, .07);
+}
+
+body.pid.page-edit .form-card .card-header {
+padding: 1rem 1.25rem;
+            background: #fff;
+            border-bottom: 1px solid #edf0f5;
+            border-radius: 16px 16px 0 0;
+}
+
+body.pid.page-edit .form-label {
+color: #374151;
+            font-weight: 650;
+}
+
+body.pid.page-edit .required::after {
+margin-left: .2rem;
+            color: #dc3545;
+            content: "*";
+}
+
+body.pid.page-edit .form-control,
+body.pid.page-edit .form-select {
+min-height: 44px;
+            border-color: #dbe2ea;
+            border-radius: 10px;
+}
+
+body.pid.page-edit .asset-type-grid {
+display: grid;
+            grid-template-columns: repeat(5, minmax(110px, 1fr));
+            gap: .75rem;
+}
+
+body.pid.page-edit .asset-type-option,
+body.pid.page-edit .printer-type-option {
+position: relative;
+}
+
+body.pid.page-edit .asset-type-option input,
+body.pid.page-edit .printer-type-option input {
+position: absolute;
+            opacity: 0;
+}
+
+body.pid.page-edit .asset-type-label {
+display: flex;
+            min-height: 102px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            padding: .75rem;
+            cursor: pointer;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            background: #fff;
+}
+
+body.pid.page-edit .asset-type-label i {
+color: #64748b;
+            font-size: 1.65rem;
+}
+
+body.pid.page-edit .asset-type-option input:checked + .asset-type-label,
+body.pid.page-edit .printer-type-option input:checked + .printer-type-label {
+color: #4338ca;
+            border-color: #667eea;
+            background: #eef2ff;
+}
+
+body.pid.page-edit .printer-type-grid {
+display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+}
+
+body.pid.page-edit .printer-type-label {
+display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .7rem 1rem;
+            cursor: pointer;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: #fff;
+}
+
+body.pid.page-edit .section-hidden {
+display: none;
+}
+
+body.pid.page-edit .sticky-submit {
+position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 16.666667%;
+            z-index: 1030;
+            padding: .85rem 1.5rem;
+            border-top: 1px solid #dbe2ea;
+            background: rgba(255, 255, 255, .97);
+            box-shadow: 0 -5px 22px rgba(31, 41, 55, .1);
+}
+
+body.pid.page-edit .sticky-inner {
+display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+}
+
+@media (max-width: 1199.98px) {
+body.pid.page-edit .asset-type-grid {
+grid-template-columns: repeat(3, minmax(110px, 1fr));
+}
+}
+
+@media (max-width: 767.98px) {
+body.pid.page-edit {
+padding-bottom: 190px;
+}
+
+body.pid.page-edit .sidebar {
+min-height: auto;
+                position: static;
+}
+
+body.pid.page-edit .sidebar nav {
+display: flex;
+                flex-flow: row wrap;
+}
+
+body.pid.page-edit .asset-type-grid {
+grid-template-columns: repeat(2, minmax(110px, 1fr));
+}
+
+body.pid.page-edit .sticky-submit {
+left: 0;
+}
+
+body.pid.page-edit .sticky-inner {
+align-items: stretch;
+                flex-direction: column;
+}
+
+body.pid.page-edit .sticky-actions {
+display: grid !important;
+                grid-template-columns: 1fr;
+}
+}
+
+/* =========================================================
+   HAPUS.PHP
+   ========================================================= */
+body.pid.page-hapus {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+}
+
+body.pid.page-hapus,
+body.pid.page-hapus * {
+box-sizing: border-box;
+}
+
+body.pid.page-hapus {
+margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pid.page-hapus .sidebar {
+min-height: 100vh;
+            color: #fff;
+            background: linear-gradient(135deg, var(--sidebar-start), var(--sidebar-end));
+            position: sticky;
+            top: 0;
+}
+
+body.pid.page-hapus .brand-mark {
+width: 44px;
+            height: 44px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 13px;
+            background: rgba(255, 255, 255, .16);
+            border: 1px solid rgba(255, 255, 255, .22);
+}
+
+body.pid.page-hapus .nav-link {
+margin-bottom: .35rem;
+            padding: .75rem .9rem;
+            color: rgba(255, 255, 255, .82);
+            border-radius: 8px;
+}
+
+body.pid.page-hapus .nav-link:hover,
+body.pid.page-hapus .nav-link.active {
+color: #fff;
+            background: rgba(0, 0, 0, .2);
+}
+
+body.pid.page-hapus .page-title {
+font-weight: 750;
+            letter-spacing: -.02em;
+}
+
+body.pid.page-hapus .content-card {
+border: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(31, 41, 55, .07);
+}
+
+body.pid.page-hapus .warning-card {
+border: 1px solid #fecaca;
+            border-left: 6px solid #dc3545;
+            background: #fff7f7;
+}
+
+body.pid.page-hapus .asset-summary {
+border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            background: #f8fafc;
+}
+
+body.pid.page-hapus .summary-label {
+display: block;
+            margin-bottom: .25rem;
+            color: var(--text-muted);
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+}
+
+body.pid.page-hapus .summary-value {
+font-weight: 650;
+            overflow-wrap: anywhere;
+}
+
+body.pid.page-hapus .form-label {
+color: #374151;
+            font-weight: 700;
+}
+
+body.pid.page-hapus .form-control {
+border-color: #dbe2ea;
+            border-radius: 10px;
+}
+
+body.pid.page-hapus .form-control:focus {
+border-color: #dc3545;
+            box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .12);
+}
+
+@media (max-width: 767.98px) {
+body.pid.page-hapus .sidebar {
+min-height: auto;
+                position: static;
+}
+
+body.pid.page-hapus .sidebar nav {
+display: flex;
+                flex-flow: row wrap;
+                gap: .25rem;
+}
+}
+
+/* =========================================================
+   LIHAT.PHP
+   ========================================================= */
+body.pid.page-lihat {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+}
+
+body.pid.page-lihat,
+body.pid.page-lihat * {
+box-sizing: border-box;
+}
+
+body.pid.page-lihat {
+margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pid.page-lihat .sidebar {
+min-height: 100vh;
+            color: #fff;
+            background: linear-gradient(135deg, var(--sidebar-start), var(--sidebar-end));
+            position: sticky;
+            top: 0;
+}
+
+body.pid.page-lihat .brand-mark {
+width: 44px;
+            height: 44px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 13px;
+            background: rgba(255, 255, 255, .16);
+            border: 1px solid rgba(255, 255, 255, .22);
+}
+
+body.pid.page-lihat .nav-link {
+margin-bottom: .35rem;
+            padding: .75rem .9rem;
+            color: rgba(255, 255, 255, .82);
+            border-radius: 8px;
+}
+
+body.pid.page-lihat .nav-link:hover,
+body.pid.page-lihat .nav-link.active {
+color: #fff;
+            background: rgba(0, 0, 0, .2);
+}
+
+body.pid.page-lihat .page-title {
+font-weight: 750;
+            letter-spacing: -.02em;
+}
+
+body.pid.page-lihat .content-card {
+border: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(31, 41, 55, .07);
+}
+
+body.pid.page-lihat .detail-box {
+height: 100%;
+            padding: 1rem;
+            border: 1px solid #e3e8ef;
+            border-radius: 12px;
+            background: #f8fafc;
+}
+
+body.pid.page-lihat .detail-label {
+display: block;
+            margin-bottom: .25rem;
+            color: var(--text-muted);
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .025em;
+}
+
+body.pid.page-lihat .detail-value {
+font-weight: 600;
+            overflow-wrap: anywhere;
+}
+
+body.pid.page-lihat .action-group {
+display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+}
+
+body.pid.page-lihat .nav-pills .nav-link {
+margin-right: .35rem;
+            color: #475569;
+            background: #e9edf3;
+}
+
+body.pid.page-lihat .nav-pills .nav-link.active {
+color: #fff;
+            background: #667eea;
+}
+
+body.pid.page-lihat .timeline-item {
+display: flex;
+            gap: .85rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #edf0f5;
+}
+
+body.pid.page-lihat .timeline-item:last-child {
+border-bottom: 0;
+}
+
+body.pid.page-lihat .timeline-icon {
+width: 38px;
+            height: 38px;
+            display: grid;
+            flex: 0 0 38px;
+            place-items: center;
+            color: #fff;
+            border-radius: 50%;
+}
+
+body.pid.page-lihat .timeline-success {
+background: #198754;
+}
+
+body.pid.page-lihat .timeline-danger {
+background: #dc3545;
+}
+
+body.pid.page-lihat .timeline-primary {
+background: #0d6efd;
+}
+
+body.pid.page-lihat .timeline-secondary {
+background: #6c757d;
+}
+
+body.pid.page-lihat .empty-state {
+padding: 3.5rem 1rem;
+            text-align: center;
+            color: var(--text-muted);
+}
+
+body.pid.page-lihat .empty-state i {
+display: block;
+            margin-bottom: .75rem;
+            color: #94a3b8;
+            font-size: 2.7rem;
+}
+
+body.pid.page-lihat .rejection-alert {
+border-left: 5px solid #dc3545;
+}
+
+body.pid.page-lihat .table > :not(caption) > * > * {
+padding: .85rem .75rem;
+            vertical-align: middle;
+}
+
+@media (max-width: 767.98px) {
+body.pid.page-lihat .sidebar {
+min-height: auto;
+                position: static;
+}
+
+body.pid.page-lihat .sidebar nav {
+display: flex;
+                flex-flow: row wrap;
+                gap: .25rem;
+}
+}
+
+/* =========================================================
+   SELENGGARA.PHP
+   ========================================================= */
+body.pid.page-selenggara {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+}
+
+body.pid.page-selenggara,
+body.pid.page-selenggara * {
+box-sizing: border-box;
+}
+
+body.pid.page-selenggara {
+margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pid.page-selenggara .sidebar {
+min-height: 100vh;
+            color: #fff;
+            background: linear-gradient(135deg, var(--sidebar-start), var(--sidebar-end));
+            position: sticky;
+            top: 0;
+}
+
+body.pid.page-selenggara .brand-mark {
+width: 44px;
+            height: 44px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 13px;
+            background: rgba(255,255,255,.16);
+            border: 1px solid rgba(255,255,255,.22);
+}
+
+body.pid.page-selenggara .nav-link {
+margin-bottom: .35rem;
+            padding: .75rem .9rem;
+            color: rgba(255,255,255,.82);
+            border-radius: 8px;
+}
+
+body.pid.page-selenggara .nav-link:hover,
+body.pid.page-selenggara .nav-link.active {
+color: #fff;
+            background: rgba(0,0,0,.2);
+}
+
+body.pid.page-selenggara .content-card {
+border: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(31,41,55,.07);
+}
+
+body.pid.page-selenggara .asset-summary {
+border: 1px solid #dbe4f0;
+            border-radius: 14px;
+            background: #f8fafc;
+}
+
+body.pid.page-selenggara .summary-label {
+display: block;
+            margin-bottom: .2rem;
+            color: var(--text-muted);
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+}
+
+body.pid.page-selenggara .form-label {
+color: #374151;
+            font-weight: 700;
+}
+
+body.pid.page-selenggara .form-control,
+body.pid.page-selenggara .form-select {
+min-height: 44px;
+            border-color: #dbe2ea;
+            border-radius: 10px;
+}
+
+body.pid.page-selenggara .form-control:focus,
+body.pid.page-selenggara .form-select:focus {
+border-color: #667eea;
+            box-shadow: 0 0 0 .2rem rgba(102,126,234,.14);
+}
+
+body.pid.page-selenggara .info-banner {
+border-left: 5px solid #0d6efd;
+            background: #eef5ff;
+}
+
+@media (max-width: 767.98px) {
+body.pid.page-selenggara .sidebar {
+min-height: auto;
+                position: static;
+}
+
+body.pid.page-selenggara .sidebar nav {
+display: flex;
+                flex-flow: row wrap;
+                gap: .25rem;
+}
+}
+
+/* =========================================================
+   SENARAI_ASET.PHP
+   ========================================================= */
+body.pid.page-senarai-aset {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+}
+
+body.pid.page-senarai-aset,
+body.pid.page-senarai-aset * {
+box-sizing: border-box;
+}
+
+body.pid.page-senarai-aset {
+margin: 0;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pid.page-senarai-aset .sidebar {
+min-height: 100vh;
+            color: #fff;
+            background: linear-gradient(135deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+            position: sticky;
+            top: 0;
+}
+
+body.pid.page-senarai-aset .brand-mark {
+width: 44px;
+            height: 44px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 13px;
+            background: rgba(255, 255, 255, .16);
+            border: 1px solid rgba(255, 255, 255, .22);
+}
+
+body.pid.page-senarai-aset .nav-link {
+margin-bottom: .35rem;
+            padding: .75rem .9rem;
+            color: rgba(255, 255, 255, .82);
+            border-radius: 8px;
+            transition: background-color .15s ease, color .15s ease;
+}
+
+body.pid.page-senarai-aset .nav-link:hover,
+body.pid.page-senarai-aset .nav-link.active {
+color: #fff;
+            background: rgba(0, 0, 0, .2);
+}
+
+body.pid.page-senarai-aset .nav-link i {
+width: 24px;
+}
+
+body.pid.page-senarai-aset .main-content {
+min-height: 100vh;
+}
+
+body.pid.page-senarai-aset .page-title {
+font-weight: 750;
+            letter-spacing: -.02em;
+}
+
+body.pid.page-senarai-aset .content-card {
+border: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(31, 41, 55, .07);
+}
+
+body.pid.page-senarai-aset .form-label {
+color: #374151;
+            font-size: .86rem;
+            font-weight: 650;
+}
+
+body.pid.page-senarai-aset .form-control,
+body.pid.page-senarai-aset .form-select {
+min-height: 44px;
+            border-color: #dbe2ea;
+            border-radius: 10px;
+}
+
+body.pid.page-senarai-aset .form-control:focus,
+body.pid.page-senarai-aset .form-select:focus {
+border-color: #667eea;
+            box-shadow: 0 0 0 .2rem rgba(102, 126, 234, .14);
+}
+
+body.pid.page-senarai-aset .table-responsive {
+border-radius: 0 0 16px 16px;
+}
+
+body.pid.page-senarai-aset .table > :not(caption) > * > * {
+padding: .9rem .75rem;
+            vertical-align: middle;
+}
+
+body.pid.page-senarai-aset .table thead th {
+color: #4b5563;
+            background: #f8fafc;
+            border-bottom-width: 1px;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .035em;
+            white-space: nowrap;
+}
+
+body.pid.page-senarai-aset .asset-number {
+color: #3730a3;
+            font-weight: 750;
+            text-decoration: none;
+}
+
+body.pid.page-senarai-aset .asset-number:hover {
+text-decoration: underline;
+}
+
+body.pid.page-senarai-aset .action-group {
+display: flex;
+            flex-wrap: wrap;
+            gap: .35rem;
+}
+
+body.pid.page-senarai-aset .rejection-note {
+display: block;
+            max-width: 280px;
+            margin-top: .4rem;
+            color: #b91c1c;
+            font-size: .78rem;
+            white-space: normal;
+            overflow-wrap: anywhere;
+}
+
+body.pid.page-senarai-aset .result-summary {
+color: var(--text-muted);
+            font-size: .9rem;
+}
+
+body.pid.page-senarai-aset .empty-state {
+padding: 4rem 1rem;
+            text-align: center;
+            color: var(--text-muted);
+}
+
+body.pid.page-senarai-aset .empty-state i {
+display: block;
+            margin-bottom: .75rem;
+            color: #94a3b8;
+            font-size: 2.8rem;
+}
+
+body.pid.page-senarai-aset .pagination .page-link {
+color: #4f46e5;
+            border-color: #e2e8f0;
+}
+
+body.pid.page-senarai-aset .pagination .page-item.active .page-link {
+color: #fff;
+            background: #5b5ce2;
+            border-color: #5b5ce2;
+}
+
+@media (max-width: 767.98px) {
+body.pid.page-senarai-aset .sidebar {
+min-height: auto;
+                position: static;
+}
+
+body.pid.page-senarai-aset .sidebar nav {
+display: flex;
+                flex-flow: row wrap;
+                gap: .25rem;
+}
+
+body.pid.page-senarai-aset .main-content {
+min-height: auto;
+}
+}
+
+/* =========================================================
+   TAMBAH.PHP
+   ========================================================= */
+body.pid.page-tambah {
+--sidebar-start: #667eea;
+            --sidebar-end: #764ba2;
+            --page-bg: #f4f7fb;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+}
+
+body.pid.page-tambah,
+body.pid.page-tambah * {
+box-sizing: border-box;
+}
+
+body.pid.page-tambah {
+margin: 0;
+            padding-bottom: 100px;
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pid.page-tambah .sidebar {
+min-height: 100vh;
+            color: #fff;
+            background: linear-gradient(135deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+            position: sticky;
+            top: 0;
+}
+
+body.pid.page-tambah .brand-mark {
+width: 44px;
+            height: 44px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 13px;
+            background: rgba(255, 255, 255, .16);
+            border: 1px solid rgba(255, 255, 255, .22);
+}
+
+body.pid.page-tambah .nav-link {
+margin-bottom: .35rem;
+            padding: .75rem .9rem;
+            color: rgba(255, 255, 255, .82);
+            border-radius: 8px;
+            transition: background-color .15s ease, color .15s ease;
+}
+
+body.pid.page-tambah .nav-link:hover,
+body.pid.page-tambah .nav-link.active {
+color: #fff;
+            background: rgba(0, 0, 0, .2);
+}
+
+body.pid.page-tambah .nav-link i {
+width: 24px;
+}
+
+body.pid.page-tambah .main-content {
+min-height: 100vh;
+}
+
+body.pid.page-tambah .page-title {
+font-weight: 750;
+            letter-spacing: -.02em;
+}
+
+body.pid.page-tambah .form-card {
+border: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(31, 41, 55, .07);
+}
+
+body.pid.page-tambah .form-card .card-header {
+padding: 1rem 1.25rem;
+            background: #fff;
+            border-bottom: 1px solid #edf0f5;
+            border-radius: 16px 16px 0 0;
+}
+
+body.pid.page-tambah .form-label {
+color: #374151;
+            font-weight: 650;
+}
+
+body.pid.page-tambah .required::after {
+margin-left: .2rem;
+            color: #dc3545;
+            content: "*";
+}
+
+body.pid.page-tambah .form-control,
+body.pid.page-tambah .form-select {
+min-height: 44px;
+            border-color: #dbe2ea;
+            border-radius: 10px;
+}
+
+body.pid.page-tambah .form-control:focus,
+body.pid.page-tambah .form-select:focus {
+border-color: #667eea;
+            box-shadow: 0 0 0 .2rem rgba(102, 126, 234, .14);
+}
+
+body.pid.page-tambah .asset-type-grid {
+display: grid;
+            grid-template-columns: repeat(5, minmax(110px, 1fr));
+            gap: .75rem;
+}
+
+body.pid.page-tambah .asset-type-option {
+position: relative;
+}
+
+body.pid.page-tambah .asset-type-option input {
+position: absolute;
+            opacity: 0;
+            pointer-events: none;
+}
+
+body.pid.page-tambah .asset-type-label {
+display: flex;
+            min-height: 105px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .45rem;
+            padding: .8rem;
+            cursor: pointer;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            background: #fff;
+            transition: border-color .15s ease, background-color .15s ease, transform .15s ease;
+}
+
+body.pid.page-tambah .asset-type-label i {
+color: #64748b;
+            font-size: 1.7rem;
+}
+
+body.pid.page-tambah .asset-type-option input:checked + .asset-type-label {
+color: #4338ca;
+            border-color: #667eea;
+            background: #eef2ff;
+            transform: translateY(-2px);
+}
+
+body.pid.page-tambah .asset-type-option input:checked + .asset-type-label i {
+color: #4f46e5;
+}
+
+body.pid.page-tambah .printer-type-grid {
+display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+}
+
+body.pid.page-tambah .printer-type-option {
+position: relative;
+}
+
+body.pid.page-tambah .printer-type-option input {
+position: absolute;
+            opacity: 0;
+}
+
+body.pid.page-tambah .printer-type-label {
+display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .7rem 1rem;
+            cursor: pointer;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: #fff;
+}
+
+body.pid.page-tambah .printer-type-option input:checked + .printer-type-label {
+color: #4338ca;
+            border-color: #667eea;
+            background: #eef2ff;
+}
+
+body.pid.page-tambah .section-hidden {
+display: none;
+}
+
+body.pid.page-tambah .agency-note {
+border: 1px solid #c7d2fe;
+            border-radius: 14px;
+            background: #eef2ff;
+            color: #3730a3;
+}
+
+body.pid.page-tambah .sticky-submit {
+position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 16.666667%;
+            z-index: 1030;
+            padding: .85rem 1.5rem;
+            border-top: 1px solid #dbe2ea;
+            background: rgba(255, 255, 255, .96);
+            box-shadow: 0 -5px 22px rgba(31, 41, 55, .1);
+            backdrop-filter: blur(8px);
+}
+
+body.pid.page-tambah .sticky-submit-inner {
+display: flex;
+            max-width: 1400px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 auto;
+}
+
+@media (max-width: 1199.98px) {
+body.pid.page-tambah .asset-type-grid {
+grid-template-columns: repeat(3, minmax(110px, 1fr));
+}
+}
+
+@media (max-width: 767.98px) {
+body.pid.page-tambah {
+padding-bottom: 150px;
+}
+
+body.pid.page-tambah .sidebar {
+min-height: auto;
+                position: static;
+}
+
+body.pid.page-tambah .sidebar nav {
+display: flex;
+                flex-flow: row wrap;
+                gap: .25rem;
+}
+
+body.pid.page-tambah .asset-type-grid {
+grid-template-columns: repeat(2, minmax(110px, 1fr));
+}
+
+body.pid.page-tambah .sticky-submit {
+left: 0;
+}
+
+body.pid.page-tambah .sticky-submit-inner {
+align-items: stretch;
+                flex-direction: column;
+}
+
+body.pid.page-tambah .sticky-submit .btn-group-area {
+display: grid;
+                grid-template-columns: 1fr;
+                gap: .5rem;
+}
+}
+
+/* =========================================================
+   SHARED PID UTILITIES
+   ========================================================= */
+
+body.pid {
+    min-height: 100vh;
+}
+
+body.pid > .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body.pid > .container-fluid > .row {
+    min-height: 100vh;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body.pid .sidebar-divider {
+    width: 100%;
+    margin: 1.1rem 0;
+    border-color: rgba(255, 255, 255, .22);
+    opacity: 1;
+}
+
+body.pid .horizontal-scroll {
+    overflow-x: auto;
+}
+
+body.pid .main-content {
+    min-width: 0;
+}
+
+@media (max-width: 767.98px) {
+    body.pid > .container-fluid > .row {
+        min-height: auto;
+    }
+}
